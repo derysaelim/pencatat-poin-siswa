@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dashboard">Dashboard</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="logout">Logout</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nomor_induk_siswa">Nomor Induk Siswa</string>
+    <string name="nis">NIS</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="nomor_hp">Nomor HP</string>
+    <string name="password">Password</string>
+    <string name="konfirmasi_password">Konfirmasi Password</string>
+    <string name="edit">Edit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="data_penghargaan">Data Penghargaan</string>
+    <string name="data_pelanggaran">Data Pelanggaran</string>
+</resources>

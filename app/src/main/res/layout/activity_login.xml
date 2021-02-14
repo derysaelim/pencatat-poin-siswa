@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingEnd="42dp"
+    android:paddingStart="42dp"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_above="@id/white_space"
+        android:layout_marginBottom="58dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_decs"
+            android:src="@drawable/logo_smk"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:contentDescription="@string/image_decs"
+            android:src="@drawable/login_icon" />
+
+    </LinearLayout>
+
+    <Space
+        android:id="@+id/white_space"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:layout_centerInParent="true" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nip_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/white_space"
+        android:background="@drawable/custom_edittext"
+        android:padding="8dp"
+        android:inputType="number"
+        android:hint="Username"
+        android:fontFamily="@font/roboto"
+        android:drawableStart="@drawable/username_icon"
+        android:drawablePadding="8dp"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/password_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nip_login"
+        android:background="@drawable/custom_edittext"
+        android:padding="8dp"
+        android:layout_marginTop="12dp"
+        android:inputType="textPassword"
+        android:hint="@string/password"
+        android:fontFamily="@font/roboto"
+        android:drawableStart="@drawable/lock_icon"
+        android:drawablePadding="8dp"/>
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/password_login"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_login"
+        android:text="@string/login"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/button_daftar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/login_button"
+        android:layout_marginTop="5dp"
+        android:background="#00000000"
+        android:text="Belum punya akun? Daftar"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryDark"/>
+
+    <TextView
+        android:id="@+id/smkn1cimahi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/smkncimahi"
+        android:fontFamily="@font/roboto"
+        android:layout_marginBottom="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

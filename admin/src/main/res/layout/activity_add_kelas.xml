@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dashboard.kelas.AddKelasActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_addkelas"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/back_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/back_icon"
+                        android:contentDescription="@string/image_decs" />
+
+                    <TextView
+                        android:id="@+id/title_kelas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@id/back_button"
+                        android:fontFamily="@font/roboto"
+                        android:text="Tambah Kelas"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp" />
+
+                    <ImageButton
+                        android:id="@+id/deletekelas_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="16dp"
+                        android:visibility="gone"
+                        android:background="@drawable/delete_icon"
+                        android:contentDescription="@string/image_decs" />
+
+                    <ImageButton
+                        android:id="@+id/edit_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/deletekelas_button"
+                        android:layout_marginEnd="16dp"
+                        android:visibility="gone"
+                        android:background="@drawable/edit_icon"
+                        android:contentDescription="@string/image_decs" />
+
+                </RelativeLayout>
+            </com.google.android.material.appbar.MaterialToolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="Tingkat"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/input_tingkat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/tingkat"
+                android:layout_marginTop="8dp"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="Jurusan"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/input_jurusan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/custom_edittext"
+                android:hint="Jurusan : RPL, SIJA, TOI"
+                android:inputType="text"
+                android:maxLength="4"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="Kelas"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/no_kelas"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:text="Isi"
+                android:textColor="@android:color/holo_red_light" />
+
+            <RadioGroup
+                android:id="@+id/group_kelas"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/kelas_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A" />
+
+                <RadioButton
+                    android:id="@+id/kelas_B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="B" />
+
+                <RadioButton
+                    android:id="@+id/kelas_c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="C" />
+
+                <RadioButton
+                    android:id="@+id/kelas_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="D" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="Walikelas"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edit_walikelas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:visibility="gone"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/custom_edittext"
+                android:inputType="text"
+                android:padding="8dp" />
+
+            <Spinner
+                android:id="@+id/walikelas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner" />
+
+            <Button
+                android:id="@+id/button_simpankelas"
+                android:layout_marginTop="28dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/button_login"
+                android:text="Simpan" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.catatpelanggaran.orangtua">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <dist:module
+        dist:instant="false"
+        dist:title="@string/title_orangtua">
+        <dist:delivery>
+            <dist:install-time />
+        </dist:delivery>
+
+        <dist:fusing dist:include="true" />
+    </dist:module>
+
+    <application android:theme="@style/NoBorder">
+        <activity android:name=".dashboard.penghargaan.PenghargaanActivity"></activity>
+        <activity android:name=".dashboard.pelanggaran.PelanggaranActivity" />
+        <activity android:name=".OrtuActivity" />
+    </application>
+
+</manifest>

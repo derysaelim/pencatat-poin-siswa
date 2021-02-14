@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.catatpelanggaran.admin">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <dist:module
+        dist:instant="false"
+        dist:title="@string/title_admin">
+        <dist:delivery>
+            <dist:install-time />
+        </dist:delivery>
+
+        <dist:fusing dist:include="true" />
+    </dist:module>
+
+    <application android:theme="@style/NoBorder">
+        <activity android:name=".dashboard.penghargaan.AddPenghargaanActivity" />
+        <activity android:name=".dashboard.penghargaan.PenghargaanActivity" />
+        <activity android:name=".dashboard.gurubk.AddBkActivity" />
+        <activity android:name=".dashboard.gurubk.BkActivity" />
+        <activity android:name=".dashboard.petugas.AddPetugasActivity" />
+        <activity android:name=".dashboard.petugas.PetugasActivity" />
+        <activity android:name=".dashboard.pelanggaran.AddPelanggaranActivity" />
+        <activity android:name=".dashboard.kelas.DetailKelasActivity" />
+        <activity android:name=".dashboard.kelas.AddKelasActivity" />
+        <activity android:name=".dashboard.guru.AddGuruActivity" />
+        <activity android:name=".dashboard.siswa.DetailSiswaActivity" />
+        <activity android:name=".dashboard.siswa.AddSiswaActivity" />
+        <activity android:name=".dashboard.guru.GuruActivity" />
+        <activity android:name=".dashboard.kelas.KelasActivity" />
+        <activity android:name=".dashboard.pelanggaran.PelanggaranActivity" />
+        <activity android:name=".dashboard.siswa.SiswaActivity" />
+        <activity android:name=".AdminActivity" />
+    </application>
+
+</manifest>

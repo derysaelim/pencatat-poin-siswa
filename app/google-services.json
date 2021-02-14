@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "28233582156",
+    "firebase_url": "https://catat-pelanggaran.firebaseio.com",
+    "project_id": "catat-pelanggaran",
+    "storage_bucket": "catat-pelanggaran.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28233582156:android:b3b71b9e3452cf0f5456e9",
+        "android_client_info": {
+          "package_name": "com.adriandery.catatpelanggaran"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28233582156-p3qcm8oo8vm51alu405va5s0a4nv54s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_gv3BNYmYNqOw3AgRMptmgoIggDD7tBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28233582156-p3qcm8oo8vm51alu405va5s0a4nv54s0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dashboard.siswa.AddSiswaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_addsiswa"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/back_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/back_icon"
+                        android:contentDescription="@string/image_decs" />
+
+                    <TextView
+                        android:id="@+id/title_siswa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@id/back_button"
+                        android:fontFamily="@font/roboto"
+                        android:text="Data Siswa"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp" />
+
+                    <ImageButton
+                        android:id="@+id/deletesiswa_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="16dp"
+                        android:visibility="gone"
+                        android:background="@drawable/delete_icon"
+                        android:contentDescription="@string/image_decs" />
+
+                    <ImageButton
+                        android:id="@+id/editsiswa_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/deletesiswa_button"
+                        android:layout_marginEnd="16dp"
+                        android:visibility="gone"
+                        android:background="@drawable/edit_icon"
+                        android:contentDescription="@string/image_decs" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nomor Induk Siswa"
+                android:fontFamily="@font/roboto"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/input_nis"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="NIS"
+                android:background="@drawable/custom_edittext"
+                android:padding="8dp"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Lengkap"
+                android:fontFamily="@font/roboto"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/input_nama"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Lengkap"
+                android:background="@drawable/custom_edittext"
+                android:padding="8dp"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kelas"
+                android:fontFamily="@font/roboto"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/edit_kelas"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_edittext"
+                android:padding="8dp"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                android:visibility="gone" />
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/kelas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner" />
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin"
+                android:fontFamily="@font/roboto"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:id="@+id/radio_kelamin"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_laki"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Laki - Laki" />
+
+                <RadioButton
+                    android:id="@+id/radio_perempuan"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perempuan" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alamat"
+                android:fontFamily="@font/roboto"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/input_alamat"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Alamat"
+                android:background="@drawable/custom_edittext"
+                android:padding="8dp"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/button_simpansiswa"
+                android:layout_marginTop="28dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/button_login"
+                android:text="Simpan" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
