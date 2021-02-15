@@ -52,6 +52,11 @@ class AdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        getData(nip)
+    }
+
     private fun getData(nip: String) {
         val database = FirebaseDatabase.getInstance().reference
 
