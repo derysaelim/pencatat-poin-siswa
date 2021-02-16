@@ -55,7 +55,7 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="16dp"
-                        android:background="@drawable/ic_catat_pelanggaran" />
+                        android:background="@drawable/icon_catat_pelanggaran" />
 
                     <TextView
                         android:id="@+id/tv_catat"
