@@ -20,24 +20,22 @@ class MainActivity : AppCompatActivity() {
 
         if (isNetworkAvailable(this)) {
             val database = FirebaseDatabase.getInstance().reference
-            database.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()) {
-                        val intent = Intent(applicationContext, LoginActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        Toast.makeText(this@MainActivity, "no catat", Toast.LENGTH_SHORT).show()
-                    }
-                }
+           database.addListenerForSingleValueEvent(object : ValueEventListener {
+               override fun onDataChange(snapshot: DataSnapshot) {
+                   if (snapshot.exists()) {
+                       val intent = Intent(applicationContext, LoginActivity::class.java)
+                       startActivity(intent)
+                       finish()
+                   } else {
+                       Toast.makeText(this@MainActivity, "no catat", Toast.LENGTH_SHORT).show()
+                   }
+               }
 
-                override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(this@MainActivity, "no internet", Toast.LENGTH_SHORT).show()
-                }
+               override fun onCancelled(error: DatabaseError) {
+                   Toast.makeText(this@MainActivity, "no internet", Toast.LENGTH_SHORT).show()
+               }
 
-            })
-//            Handler().postDelayed({
-//            }, 1500)
+           })
         } else {
             Toast.makeText(this, "no internet", Toast.LENGTH_SHORT).show()
         }
