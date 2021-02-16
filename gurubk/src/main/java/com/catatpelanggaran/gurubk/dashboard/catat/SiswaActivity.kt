@@ -25,6 +25,7 @@ class SiswaActivity : AppCompatActivity() {
 
     companion object {
         const val DATA_KELAS = "DATA_KELAS"
+        const val DATA_SISWA = "DATA_SISWA"
     }
 
     var listSiswa: ArrayList<Catat>? = null
@@ -32,6 +33,7 @@ class SiswaActivity : AppCompatActivity() {
     lateinit var searchManager: SearchManager
     lateinit var searchView: SearchView
     lateinit var dataKelas: Kelas
+    lateinit var data: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +42,7 @@ class SiswaActivity : AppCompatActivity() {
 
         dataKelas = intent.getParcelableExtra(DATA_KELAS)!!
         text_kelas.text = "${dataKelas.tingkat + " " + dataKelas.jurusan + " " + dataKelas.kelas}"
+        data = intent.getStringExtra(DATA_SISWA).toString()
 
         back_button.setOnClickListener {
             onBackPressed()
@@ -84,10 +87,7 @@ class SiswaActivity : AppCompatActivity() {
                             list_siswa.visibility = View.VISIBLE
 
                             adapter.onItemClick = { selectedSiswa ->
-                                val alertBuilder = AlertDialog.Builder(this@SiswaActivity)
-                                alertBuilder.setTitle("Catat")
-                                alertBuilder.setMessage("Pilih salah satu")
-                                alertBuilder.setPositiveButton("Pelanggaran") { _, _ ->
+                                if (data == "langgar") {
                                     val siswa = Intent(
                                         this@SiswaActivity,
                                         CatatPelanggaranActivity::class.java
@@ -97,8 +97,7 @@ class SiswaActivity : AppCompatActivity() {
                                         selectedSiswa
                                     )
                                     startActivity(siswa)
-                                }
-                                alertBuilder.setNegativeButton("Penghargaan") { _, _ ->
+                                } else {
                                     val siswa = Intent(
                                         this@SiswaActivity,
                                         CatatPenghargaanActivity::class.java
@@ -109,8 +108,6 @@ class SiswaActivity : AppCompatActivity() {
                                     )
                                     startActivity(siswa)
                                 }
-                                val dialogCatat = alertBuilder.create()
-                                dialogCatat.show()
                             }
                         } else {
                             siswa_empty.visibility = View.VISIBLE
@@ -142,10 +139,7 @@ class SiswaActivity : AppCompatActivity() {
                             list_siswa.visibility = View.VISIBLE
 
                             adapter.onItemClick = { selectedSiswa ->
-                                val alertBuilder = AlertDialog.Builder(this@SiswaActivity)
-                                alertBuilder.setTitle("Catat")
-                                alertBuilder.setMessage("Pilih salah satu")
-                                alertBuilder.setPositiveButton("Pelanggaran") { _, _ ->
+                                if (data == "langgar") {
                                     val siswa = Intent(
                                         this@SiswaActivity,
                                         CatatPelanggaranActivity::class.java
@@ -155,8 +149,7 @@ class SiswaActivity : AppCompatActivity() {
                                         selectedSiswa
                                     )
                                     startActivity(siswa)
-                                }
-                                alertBuilder.setNegativeButton("Penghargaan") { _, _ ->
+                                } else {
                                     val siswa = Intent(
                                         this@SiswaActivity,
                                         CatatPenghargaanActivity::class.java
@@ -167,8 +160,6 @@ class SiswaActivity : AppCompatActivity() {
                                     )
                                     startActivity(siswa)
                                 }
-                                val dialogCatat = alertBuilder.create()
-                                dialogCatat.show()
                             }
                         } else {
                             siswa_empty.visibility = View.VISIBLE

@@ -31,9 +31,11 @@ class DashboardFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         catat_pelanggaran.setOnClickListener(this)
-        data_pelanggaran.setOnClickListener(this)
-        buat_laporan.setOnClickListener(this)
+        catat_penghargaan.setOnClickListener(this)
+        data_pelanggar.setOnClickListener(this)
         data_penghargaan.setOnClickListener(this)
+        list_pelanggaran.setOnClickListener(this)
+        list_penghargaan.setOnClickListener(this)
 
         nip = activity?.intent?.getStringExtra("NIP").toString()
     }
@@ -44,15 +46,23 @@ class DashboardFragment : Fragment(), View.OnClickListener {
         when (view.id) {
             R.id.catat_pelanggaran -> {
                 intent = Intent(context, KelasActivity::class.java)
+                intent.putExtra(KelasActivity.DATA_SISWA, "langgar")
             }
-            R.id.data_pelanggaran -> {
+            R.id.catat_penghargaan -> {
+                intent = Intent(context, KelasActivity::class.java)
+                intent.putExtra(KelasActivity.DATA_SISWA, "reward")
+            }
+            R.id.list_pelanggaran -> {
                 intent = Intent(context, PelanggaranActivity::class.java)
             }
-            R.id.buat_laporan -> {
+            R.id.list_penghargaan -> {
+                intent = Intent(context, PenghargaanActivity::class.java)
+            }
+            R.id.data_pelanggar -> {
                 intent = Intent(context, DataPelanggarActivity::class.java)
             }
             R.id.data_penghargaan -> {
-                intent = Intent(context, PenghargaanActivity::class.java)
+                intent = Intent(context, DataPelanggarActivity::class.java)
             }
         }
         startActivity(intent)

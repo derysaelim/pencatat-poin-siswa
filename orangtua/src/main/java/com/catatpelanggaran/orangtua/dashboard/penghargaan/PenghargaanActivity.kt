@@ -6,10 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.catatpelanggaran.orangtua.R
-import com.catatpelanggaran.orangtua.adapter.AdapterPelanggaran
 import com.catatpelanggaran.orangtua.adapter.AdapterPenghargaan
-import com.catatpelanggaran.orangtua.dashboard.pelanggaran.PelanggaranActivity
-import com.catatpelanggaran.orangtua.model.Pelanggaran
 import com.catatpelanggaran.orangtua.model.Penghargaan
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -39,7 +36,7 @@ class PenghargaanActivity : AppCompatActivity() {
         back_button.setOnClickListener { onBackPressed() }
 
         nis = intent.getStringExtra(NIS_SISWA).toString()
-        data = intent.getStringExtra(PelanggaranActivity.DATA_ACTIVITY).toString()
+        data = intent.getStringExtra(DATA_ACTIVITY).toString()
 
         if (data == "siswa") {
             getDataSiswa(nis)
