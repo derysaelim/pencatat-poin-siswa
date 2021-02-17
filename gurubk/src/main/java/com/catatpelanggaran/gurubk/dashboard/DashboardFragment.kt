@@ -2,15 +2,13 @@ package com.catatpelanggaran.gurubk.dashboard
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.catatpelanggaran.gurubk.R
-import com.catatpelanggaran.gurubk.dashboard.catat.CatatPelanggaranActivity
 import com.catatpelanggaran.gurubk.dashboard.catat.KelasActivity
 import com.catatpelanggaran.gurubk.dashboard.datapelanggar.DataPelanggarActivity
-import com.catatpelanggaran.gurubk.dashboard.gurubk.BkActivity
 import com.catatpelanggaran.gurubk.dashboard.pelanggaran.PelanggaranActivity
 import com.catatpelanggaran.gurubk.dashboard.penghargaan.PenghargaanActivity
 import kotlinx.android.synthetic.main.fragment_dashboard.*
@@ -60,9 +58,11 @@ class DashboardFragment : Fragment(), View.OnClickListener {
             }
             R.id.data_pelanggar -> {
                 intent = Intent(context, DataPelanggarActivity::class.java)
+                intent.putExtra(DataPelanggarActivity.DATA_SISWA, "langgar")
             }
             R.id.data_penghargaan -> {
                 intent = Intent(context, DataPelanggarActivity::class.java)
+                intent.putExtra(DataPelanggarActivity.DATA_SISWA, "reward")
             }
         }
         startActivity(intent)

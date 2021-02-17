@@ -1,9 +1,9 @@
 package com.catatpelanggaran.orangtua.dashboard.penghargaan
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.catatpelanggaran.orangtua.R
 import com.catatpelanggaran.orangtua.adapter.AdapterPenghargaan
@@ -102,7 +102,7 @@ class PenghargaanActivity : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance().reference
 
         listPenghargaan = arrayListOf()
-        database.child("Penghargaan").child(nis).orderByChild("namaPenghargaan")
+        database.child("DataPenghargaan").child(nis).orderByChild("namaPenghargaan")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {

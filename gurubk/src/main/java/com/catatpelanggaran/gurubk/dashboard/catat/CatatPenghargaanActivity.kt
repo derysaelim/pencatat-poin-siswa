@@ -1,11 +1,11 @@
 package com.catatpelanggaran.gurubk.dashboard.catat
 
 import android.app.DatePickerDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.catatpelanggaran.gurubk.R
 import com.catatpelanggaran.gurubk.model.Catat
 import com.catatpelanggaran.gurubk.model.Penghargaan
@@ -14,7 +14,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_catat_pelanggaran.*
-import kotlinx.android.synthetic.main.activity_catat_pelanggaran.input_tanggal
 import kotlinx.android.synthetic.main.activity_catat_penghargaan.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -28,7 +27,6 @@ class CatatPenghargaanActivity : AppCompatActivity() {
     lateinit var adapterPenghargaan: ArrayAdapter<String>
     lateinit var dataListPenghargaan: ArrayList<String>
     lateinit var dataListPoin: ArrayList<String>
-    lateinit var dataListId: ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +48,6 @@ class CatatPenghargaanActivity : AppCompatActivity() {
 
         dataListPoin = ArrayList()
         dataListPenghargaan = ArrayList()
-        dataListId = ArrayList()
         adapterPenghargaan = ArrayAdapter(
             this@CatatPenghargaanActivity,
             android.R.layout.simple_spinner_dropdown_item,
@@ -64,7 +61,7 @@ class CatatPenghargaanActivity : AppCompatActivity() {
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
-                        val poin = snapshot.child("dataPenghargaan").child("poin").value.toString()
+                        val poin = snapshot.child("poin").value.toString()
                         dataCatat = Catat(dataCatat!!.nis, dataCatat!!.nama_siswa, poin.toInt())
                     }
                 }
@@ -109,7 +106,7 @@ class CatatPenghargaanActivity : AppCompatActivity() {
         val jenispenghargaan = jenispenghargaan.selectedItem.toString()
         val keterangan = keterangan_penghargaan.text.toString()
         val poin = dataListPoin[idpenghargaan.toInt()].toInt()
-        val id = dataListId[idpenghargaan.toInt()]
+        val id = database.push().key
 
         val data = Catat(nis, namaSiswa, poin)
         val dataPenghargaan = Penghargaan(id, jenispenghargaan, poin, keterangan, tanggal)
@@ -129,9 +126,10 @@ class CatatPenghargaanActivity : AppCompatActivity() {
             }
         } else {
             try {
-                database.child("Penghargaan").child(nis).child("dataPenghargaan").setValue(data)
+                database.child("Penghargaan").child(nis).setValue(data)
                     .addOnCompleteListener {
-                        database.child("Penghargaan").child(nis).child(id).setValue(dataPenghargaan)
+                        database.child("DataPenghargaan").child(nis).child(id!!)
+                            .setValue(dataPenghargaan)
                             .addOnCompleteListener {
                                 Toast.makeText(this, "berhasil", Toast.LENGTH_SHORT).show()
                                 finish()
@@ -156,7 +154,7 @@ class CatatPenghargaanActivity : AppCompatActivity() {
         val jenispenghargaan = jenispenghargaan.selectedItem.toString()
         val keterangan = keterangan_penghargaan.text.toString()
         val poin = dataListPoin[idpenghargaan.toInt()].toInt()
-        val id = dataListId[idpenghargaan.toInt()]
+        val id = database.push().key
 
         val data = Catat(nis, namaSiswa, dataCatat.poin!! + poin)
         val dataPenghargaan = Penghargaan(id, jenispenghargaan, poin, keterangan, tanggal)
@@ -176,9 +174,10 @@ class CatatPenghargaanActivity : AppCompatActivity() {
             }
         } else {
             try {
-                database.child("Penghargaan").child(nis).child("dataPenghargaan").setValue(data)
+                database.child("Penghargaan").child(nis).setValue(data)
                     .addOnCompleteListener {
-                        database.child("Penghargaan").child(nis).child(id).setValue(dataPenghargaan)
+                        database.child("DataPenghargaan").child(nis).child(id!!)
+                            .setValue(dataPenghargaan)
                             .addOnCompleteListener {
                                 Toast.makeText(this, "berhasil", Toast.LENGTH_SHORT).show()
                                 finish()
@@ -224,7 +223,6 @@ class CatatPenghargaanActivity : AppCompatActivity() {
                 for (i in snapshot.children) {
                     dataListPenghargaan.add(i.child("namaPenghargaan").value.toString())
                     dataListPoin.add(i.child("poin").value.toString())
-                    dataListId.add(i.child("id_penghargaan").value.toString())
                 }
                 adapterPenghargaan.notifyDataSetChanged()
             }
