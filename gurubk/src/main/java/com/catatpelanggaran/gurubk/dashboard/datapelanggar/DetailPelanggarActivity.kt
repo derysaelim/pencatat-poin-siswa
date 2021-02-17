@@ -19,7 +19,7 @@ class DetailPelanggarActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail_pelanggar)
 
         nis = intent.getStringExtra(DATA_NIS).toString()
-        data = intent.getStringExtra(DATA_SISWA.toString()).toString()
+        data = intent.getStringExtra(DATA_SISWA).toString()
 
     }
 }
