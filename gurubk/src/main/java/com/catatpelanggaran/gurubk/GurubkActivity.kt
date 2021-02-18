@@ -1,11 +1,11 @@
 package com.catatpelanggaran.gurubk
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.adriandery.catatpelanggaran.LoginActivity
@@ -51,11 +51,6 @@ class GurubkActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 .commit()
             supportActionBar?.title = "Dashboard"
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        getData(nip)
     }
 
     private fun getData(nip: String) {
@@ -115,4 +110,10 @@ class GurubkActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
         return true
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
+
 }

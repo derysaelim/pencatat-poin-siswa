@@ -1,12 +1,11 @@
 package com.catatpelanggaran.orangtua
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.adriandery.catatpelanggaran.LoginActivity
@@ -53,11 +52,6 @@ class OrtuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             supportActionBar?.title = "Dashboard"
         }
 
-    }
-
-    override fun onResume() {
-        super.onResume()
-        getData(nis)
     }
 
     private fun getData(nis: String) {
@@ -113,6 +107,11 @@ class OrtuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
 }

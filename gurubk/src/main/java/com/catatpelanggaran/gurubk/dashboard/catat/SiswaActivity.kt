@@ -3,12 +3,11 @@ package com.catatpelanggaran.gurubk.dashboard.catat
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.catatpelanggaran.gurubk.R
@@ -25,6 +24,7 @@ class SiswaActivity : AppCompatActivity() {
 
     companion object {
         const val DATA_KELAS = "DATA_KELAS"
+        const val DATA_SISWA = "DATA_SISWA"
     }
 
     var listSiswa: ArrayList<Catat>? = null
@@ -32,6 +32,7 @@ class SiswaActivity : AppCompatActivity() {
     lateinit var searchManager: SearchManager
     lateinit var searchView: SearchView
     lateinit var dataKelas: Kelas
+    lateinit var data: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +41,7 @@ class SiswaActivity : AppCompatActivity() {
 
         dataKelas = intent.getParcelableExtra(DATA_KELAS)!!
         text_kelas.text = "${dataKelas.tingkat + " " + dataKelas.jurusan + " " + dataKelas.kelas}"
+        data = intent.getStringExtra(DATA_SISWA).toString()
 
         back_button.setOnClickListener {
             onBackPressed()
@@ -84,10 +86,7 @@ class SiswaActivity : AppCompatActivity() {
                             list_siswa.visibility = View.VISIBLE
 
                             adapter.onItemClick = { selectedSiswa ->
-                                val alertBuilder = AlertDialog.Builder(this@SiswaActivity)
-                                alertBuilder.setTitle("Catat")
-                                alertBuilder.setMessage("Pilih salah satu")
-                                alertBuilder.setPositiveButton("Pelanggaran") { _, _ ->
+                                if (data == "langgar") {
                                     val siswa = Intent(
                                         this@SiswaActivity,
                                         CatatPelanggaranActivity::class.java
@@ -96,9 +95,9 @@ class SiswaActivity : AppCompatActivity() {
                                         CatatPelanggaranActivity.DATA_PELANGGAR,
                                         selectedSiswa
                                     )
+                                    siswa.putExtra(CatatPelanggaranActivity.DATA_SISWA, "catat")
                                     startActivity(siswa)
-                                }
-                                alertBuilder.setNegativeButton("Penghargaan") { _, _ ->
+                                } else {
                                     val siswa = Intent(
                                         this@SiswaActivity,
                                         CatatPenghargaanActivity::class.java
@@ -109,8 +108,6 @@ class SiswaActivity : AppCompatActivity() {
                                     )
                                     startActivity(siswa)
                                 }
-                                val dialogCatat = alertBuilder.create()
-                                dialogCatat.show()
                             }
                         } else {
                             siswa_empty.visibility = View.VISIBLE
@@ -142,10 +139,7 @@ class SiswaActivity : AppCompatActivity() {
                             list_siswa.visibility = View.VISIBLE
 
                             adapter.onItemClick = { selectedSiswa ->
-                                val alertBuilder = AlertDialog.Builder(this@SiswaActivity)
-                                alertBuilder.setTitle("Catat")
-                                alertBuilder.setMessage("Pilih salah satu")
-                                alertBuilder.setPositiveButton("Pelanggaran") { _, _ ->
+                                if (data == "langgar") {
                                     val siswa = Intent(
                                         this@SiswaActivity,
                                         CatatPelanggaranActivity::class.java
@@ -154,9 +148,9 @@ class SiswaActivity : AppCompatActivity() {
                                         CatatPelanggaranActivity.DATA_PELANGGAR,
                                         selectedSiswa
                                     )
+                                    siswa.putExtra(CatatPelanggaranActivity.DATA_SISWA, "catat")
                                     startActivity(siswa)
-                                }
-                                alertBuilder.setNegativeButton("Penghargaan") { _, _ ->
+                                } else {
                                     val siswa = Intent(
                                         this@SiswaActivity,
                                         CatatPenghargaanActivity::class.java
@@ -167,8 +161,6 @@ class SiswaActivity : AppCompatActivity() {
                                     )
                                     startActivity(siswa)
                                 }
-                                val dialogCatat = alertBuilder.create()
-                                dialogCatat.show()
                             }
                         } else {
                             siswa_empty.visibility = View.VISIBLE

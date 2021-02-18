@@ -1,10 +1,8 @@
 package com.catatpelanggaran.gurubk.adapter
 
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.catatpelanggaran.gurubk.R
 import com.catatpelanggaran.gurubk.model.Catat
@@ -25,13 +23,11 @@ class AdapterDataPelanggar(val siswa: ArrayList<Catat>) : RecyclerView.Adapter<A
 
     override fun getItemCount(): Int = siswa.size
 
-
     override fun onBindViewHolder(holder: AdapterDataPelanggar.ViewHolder, position: Int) {
         holder.bind(siswa[position])
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
-        PopupMenu.OnMenuItemClickListener {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(dataCatat: Catat) {
             with(itemView) {
                 val absen = position + 1
@@ -40,13 +36,13 @@ class AdapterDataPelanggar(val siswa: ArrayList<Catat>) : RecyclerView.Adapter<A
                 poin_pel.text = "Poin = ${dataCatat.poin}"
                 no_absen.text = absen.toString()
 
-                more_button.setOnClickListener {
-                    val popupMenu = PopupMenu(context, more_button)
-                    popupMenu.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
-
-                    popupMenu.setOnMenuItemClickListener(this@ViewHolder)
-                    popupMenu.show()
-                }
+//                more_button.setOnClickListener {
+//                    val popupMenu = PopupMenu(context, more_button)
+//                    popupMenu.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
+//
+//                    popupMenu.setOnMenuItemClickListener(this@ViewHolder)
+//                    popupMenu.show()
+//                }
             }
         }
 
@@ -56,18 +52,18 @@ class AdapterDataPelanggar(val siswa: ArrayList<Catat>) : RecyclerView.Adapter<A
             }
         }
 
-        override fun onMenuItemClick(item: MenuItem): Boolean {
-            when (item.itemId) {
-                R.id.edit_data -> {
-                    onItemClick?.invoke(siswa[adapterPosition])
-                    return true
-                }
-                R.id.delete_data -> {
-                    onItemDeleteClick?.invoke(siswa[adapterPosition])
-                    return true
-                }
-            }
-            return true
-        }
+//        override fun onMenuItemClick(item: MenuItem): Boolean {
+//            when (item.itemId) {
+//                R.id.edit_data -> {
+//                    onItemClick?.invoke(siswa[adapterPosition])
+//                    return true
+//                }
+//                R.id.delete_data -> {
+//                    onItemDeleteClick?.invoke(siswa[adapterPosition])
+//                    return true
+//                }
+//            }
+//            return true
+//        }
     }
 }

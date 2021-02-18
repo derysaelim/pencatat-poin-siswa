@@ -52,11 +52,6 @@ class AdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        getData(nip)
-    }
-
     private fun getData(nip: String) {
         val database = FirebaseDatabase.getInstance().reference
 
@@ -111,5 +106,10 @@ class AdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

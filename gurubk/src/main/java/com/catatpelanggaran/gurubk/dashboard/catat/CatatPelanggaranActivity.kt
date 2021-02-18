@@ -1,12 +1,12 @@
 package com.catatpelanggaran.gurubk.dashboard.catat
 
 import android.app.DatePickerDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.catatpelanggaran.gurubk.R
 import com.catatpelanggaran.gurubk.model.Catat
 import com.catatpelanggaran.gurubk.model.Pelanggaran
@@ -24,18 +24,21 @@ class CatatPelanggaranActivity : AppCompatActivity() {
 
     companion object {
         const val DATA_PELANGGAR = "dataPelanggar"
+        const val DATA_SISWA = "DATA_SISWA"
     }
 
     lateinit var adapterPelanggaran: ArrayAdapter<String>
     lateinit var dataListPelanggaran: ArrayList<String>
     lateinit var dataListHukuman: ArrayList<String>
     lateinit var dataListPoin: ArrayList<String>
-    lateinit var dataListId: ArrayList<String>
+    lateinit var data: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_catat_pelanggaran)
         setSupportActionBar(toolbar_catat)
+
+        data = intent.getStringExtra(DATA_SISWA).toString()
 
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
@@ -53,7 +56,6 @@ class CatatPelanggaranActivity : AppCompatActivity() {
         dataListHukuman = ArrayList()
         dataListPoin = ArrayList()
         dataListPelanggaran = ArrayList()
-        dataListId = ArrayList()
         adapterPelanggaran = ArrayAdapter(
             this@CatatPelanggaranActivity,
             android.R.layout.simple_spinner_dropdown_item,
@@ -83,7 +85,7 @@ class CatatPelanggaranActivity : AppCompatActivity() {
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
-                        val poin = snapshot.child("dataPelanggar").child("poin").value.toString()
+                        val poin = snapshot.child("poin").value.toString()
                         dataCatat = Catat(dataCatat!!.nis, dataCatat!!.nama_siswa, poin.toInt())
                     }
                 }
@@ -91,20 +93,33 @@ class CatatPelanggaranActivity : AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {}
             })
 
-        if (dataCatat != null) {
-            if (dataCatat!!.poin != null) {
-                setStatus(false)
-                setJenpel(true)
-                getData(dataCatat)
-            } else {
-                setStatus(true)
-                setJenpel(false)
-                getData(dataCatat)
-                retrieveData()
-            }
-        }
-        else {
+//        if (dataCatat != null) {
+//            if (dataCatat!!.poin != null) {
+//                setStatus(false)
+//                setJenpel(true)
+//                getData(dataCatat)
+//                Log.e("poin", "1")
+//            } else {
+//                setStatus(true)
+//                setJenpel(false)
+//                getData(dataCatat)
+//                retrieveData()
+//                Log.e("poin", "2")
+//            }
+//        }
+//        else {
+//            retrieveData()
+//        }
+
+        if (data == "catat") {
             retrieveData()
+            setStatus(true)
+            setJenpel(false)
+            getData(dataCatat)
+        } else {
+            setStatus(false)
+            setJenpel(true)
+            getData(dataCatat)
         }
 
         button_simpanpelanggaran.setOnClickListener {
@@ -130,7 +145,7 @@ class CatatPelanggaranActivity : AppCompatActivity() {
         val keterangan = input_keterangan.text.toString()
         val poin = dataListPoin[idpelanggaran.toInt()].toInt()
         val hukuman = dataListHukuman[idpelanggaran.toInt()]
-        val id = dataListId[idpelanggaran.toInt()]
+        val id = database.push().key
 
         val data = Catat(nis, namaSiswa, poin)
         val dataPelanggar = Pelanggaran(id, jenispel, poin, hukuman, keterangan, tanggal)
@@ -152,9 +167,10 @@ class CatatPelanggaranActivity : AppCompatActivity() {
         }
         else {
             try {
-                database.child("Pelanggar").child(nis).child("dataPelanggar").setValue(data)
+                database.child("Pelanggar").child(nis).setValue(data)
                     .addOnCompleteListener {
-                        database.child("Pelanggar").child(nis).child(id).setValue(dataPelanggar)
+                        database.child("DataPelanggar").child(nis).child(id!!)
+                            .setValue(dataPelanggar)
                             .addOnCompleteListener {
                                 Toast.makeText(this, "berhasil", Toast.LENGTH_SHORT).show()
                                 finish()
@@ -180,7 +196,7 @@ class CatatPelanggaranActivity : AppCompatActivity() {
         val keterangan = input_keterangan.text.toString()
         val poin = dataListPoin[idpelanggaran.toInt()].toInt()
         val hukuman = dataListHukuman[idpelanggaran.toInt()]
-        val id = dataListId[idpelanggaran.toInt()]
+        val id = database.push().key
 
         val data = Catat(nis, namaSiswa, dataCatat.poin!! + poin)
         val dataPelanggar = Pelanggaran(id, jenispel, poin, hukuman, keterangan, tanggal)
@@ -200,9 +216,10 @@ class CatatPelanggaranActivity : AppCompatActivity() {
             }
         } else {
             try {
-                database.child("Pelanggar").child(nis).child("dataPelanggar").setValue(data)
+                database.child("Pelanggar").child(nis).setValue(data)
                     .addOnCompleteListener {
-                        database.child("Pelanggar").child(nis).child(id).setValue(dataPelanggar)
+                        database.child("DataPelanggar").child(nis).child(id!!)
+                            .setValue(dataPelanggar)
                             .addOnCompleteListener {
                                 Toast.makeText(this, "berhasil", Toast.LENGTH_SHORT).show()
                                 finish()
@@ -231,13 +248,16 @@ class CatatPelanggaranActivity : AppCompatActivity() {
     private fun setStatus(status: Boolean) {
         if (status) {
             detail_pelanggaran.visibility = View.GONE
+        } else {
+            detail_pelanggaran.visibility = View.VISIBLE
         }
     }
 
     private fun setJenpel(status: Boolean) {
         if (status) {
-            message_button.visibility = View.VISIBLE
             jenispel.visibility = View.GONE
+        } else {
+            jenispel.visibility = View.VISIBLE
         }
     }
 
@@ -249,7 +269,6 @@ class CatatPelanggaranActivity : AppCompatActivity() {
                     dataListPelanggaran.add(i.child("namaPelanggaran").value.toString())
                     dataListPoin.add(i.child("poinPelanggaran").value.toString())
                     dataListHukuman.add(i.child("hukuman").value.toString())
-                    dataListId.add(i.child("idPelanggaran").value.toString())
                 }
                 adapterPelanggaran.notifyDataSetChanged()
             }

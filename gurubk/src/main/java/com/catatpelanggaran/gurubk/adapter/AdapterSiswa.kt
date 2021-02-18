@@ -1,18 +1,11 @@
 package com.catatpelanggaran.gurubk.adapter
 
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.catatpelanggaran.gurubk.R
 import com.catatpelanggaran.gurubk.model.Catat
-import com.catatpelanggaran.gurubk.model.Siswa
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.item_siswa.view.*
 
 class AdapterSiswa(val siswa: ArrayList<Catat>) : RecyclerView.Adapter<AdapterSiswa.ViewHolder>() {

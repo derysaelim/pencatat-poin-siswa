@@ -2,20 +2,18 @@ package com.catatpelanggaran.gurubk.dashboard.datapelanggar
 
 import android.app.AlertDialog
 import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.catatpelanggaran.gurubk.R
 import com.catatpelanggaran.gurubk.adapter.AdapterDataPelanggar
-import com.catatpelanggaran.gurubk.adapter.AdapterSiswa
-import com.catatpelanggaran.gurubk.dashboard.catat.CatatPelanggaranActivity
 import com.catatpelanggaran.gurubk.model.Catat
-import com.catatpelanggaran.gurubk.model.Pelanggaran
-import com.catatpelanggaran.gurubk.model.Siswa
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -29,47 +27,58 @@ import kotlinx.android.synthetic.main.activity_siswa.siswa_empty
 class DataPelanggarActivity : AppCompatActivity() {
 
     companion object {
-        const val DATA_PELANGGAR = "dataCatat"
+        const val DATA_SISWA = "DATA_SISWA"
     }
 
-    var listPelanggaran: ArrayList<Pelanggaran>? = null
     var listSiswa: ArrayList<Catat>? = null
-
-    lateinit var nis: String
+    lateinit var searchManager: SearchManager
+    lateinit var searchView: SearchView
     lateinit var data: String
-    lateinit var dataCatat: Catat
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_pelanggar)
         setSupportActionBar(toolbar_datapel)
 
-        dataCatat = intent.getParcelableExtra(DATA_PELANGGAR)!!
+        data = intent.getStringExtra(DATA_SISWA).toString()
 
         back_data.setOnClickListener {
             onBackPressed()
         }
 
-        getData(null, dataCatat)
+        if (data == "langgar") {
+            getDataPelanggaran(null)
+        } else {
+            getDataPenghargaan(null)
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        getData(null, dataCatat)
+        if (data == "langgar") {
+            getDataPelanggaran(null)
+        } else {
+            getDataPenghargaan(null)
+        }
     }
 
-    private fun getData(query: String?, dataCatat: Catat) {
+    private fun getDataPelanggaran(query: String?) {
         progress_bar.visibility = View.VISIBLE
         list_datapel.layoutManager = LinearLayoutManager(this)
         list_datapel.hasFixedSize()
         val database = FirebaseDatabase.getInstance().reference
 
-        if (query != null){
+        if (query != null) {
             listSiswa = arrayListOf()
-            database.child("Pelanggar").child(dataCatat.nis!!).orderByChild("nama_siswa").startAt(query).endAt(query + "\uf8ff")
+            database.child("Pelanggar").orderByChild("nama_siswa").startAt(query)
+                .endAt(query + "\uf8ff")
                 .addValueEventListener(object : ValueEventListener {
                     override fun onCancelled(error: DatabaseError) {
-                        Toast.makeText(this@DataPelanggarActivity, "Somethings wrong", Toast.LENGTH_SHORT)
+                        Toast.makeText(
+                            this@DataPelanggarActivity,
+                            "Somethings wrong",
+                            Toast.LENGTH_SHORT
+                        )
                             .show()
                     }
 
@@ -87,46 +96,135 @@ class DataPelanggarActivity : AppCompatActivity() {
                             list_datapel.visibility = View.VISIBLE
 
                             adapter.onItemClick = { selectedSiswa ->
-                                val intent = Intent(this@DataPelanggarActivity, CatatPelanggaranActivity::class.java)
-                                intent.putExtra(
-                                    CatatPelanggaranActivity.DATA_PELANGGAR, selectedSiswa
+                                val intent = Intent(
+                                    this@DataPelanggarActivity,
+                                    DetailPelanggarActivity::class.java
                                 )
+                                intent.putExtra(DetailPelanggarActivity.DATA_NIS, selectedSiswa.nis)
+                                intent.putExtra(DetailPelanggarActivity.DATA_SISWA, "langgar")
                                 startActivity(intent)
                             }
 
                             adapter.onItemDeleteClick = { selectedSiswa ->
                                 val builderdelete = AlertDialog.Builder(this@DataPelanggarActivity)
                                 builderdelete.setTitle("Warning!")
-                                builderdelete.setMessage("Are you sure want to delete ${selectedSiswa!!.nama_siswa} ?")
+                                builderdelete.setMessage("Are you sure want to delete ${selectedSiswa.nama_siswa} ?")
                                 builderdelete.setPositiveButton("Delete") { _, _ ->
-                                    database.child("Pelanggar").child(selectedSiswa.nis!!).removeValue()
+                                    database.child("Pelanggar").child(selectedSiswa.nis!!)
+                                        .removeValue()
                                         .addOnCompleteListener {
-                                            Toast.makeText(this@DataPelanggarActivity, "Berhasil dihapus", Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(
+                                                this@DataPelanggarActivity,
+                                                "Berhasil dihapus",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
                                         }
                                 }
                                 builderdelete.setNegativeButton("Cancel") { _, _ ->
-                                    Toast.makeText(applicationContext, "Data tidak jadi dihapus", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(
+                                        applicationContext,
+                                        "Data tidak jadi dihapus",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                 }
                                 val dialogdelete = builderdelete.create()
                                 dialogdelete.show()
                             }
 
-                        }
-                        else {
+                        } else {
                             siswa_empty.visibility = View.VISIBLE
                             list_datapel.visibility = View.GONE
                         }
                     }
                 })
-        }
-        else {
+        } else {
             listSiswa = arrayListOf()
-            database.child("Pelanggar").child(dataCatat.nis!!).orderByChild("nama_siswa")
+            database.child("Pelanggar").addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(
+                        this@DataPelanggarActivity,
+                        "Somethings wrong",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        listSiswa!!.clear()
+                        for (x in snapshot.children) {
+                            val siswa = x.getValue(Catat::class.java)
+                            listSiswa!!.add(siswa!!)
+                        }
+                        val adapter = AdapterDataPelanggar(listSiswa!!)
+                        list_datapel.adapter = adapter
+                        progress_bar.visibility = View.GONE
+                        siswa_empty.visibility = View.GONE
+                        list_datapel.visibility = View.VISIBLE
+
+                        adapter.onItemClick = { selectedSiswa ->
+                            val intent = Intent(
+                                this@DataPelanggarActivity,
+                                DetailPelanggarActivity::class.java
+                            )
+                            intent.putExtra(DetailPelanggarActivity.DATA_NIS, selectedSiswa.nis)
+                            intent.putExtra(DetailPelanggarActivity.DATA_SISWA, "langgar")
+                            startActivity(intent)
+                        }
+
+                        adapter.onItemDeleteClick = { selectedSiswa ->
+                            val builderdelete = AlertDialog.Builder(this@DataPelanggarActivity)
+                            builderdelete.setTitle("Warning!")
+                            builderdelete.setMessage("Are you sure want to delete ${selectedSiswa.nama_siswa} ?")
+                            builderdelete.setPositiveButton("Delete") { _, _ ->
+                                database.child("Pelanggar").child(selectedSiswa.nis!!)
+                                    .removeValue()
+                                    .addOnCompleteListener {
+                                        Toast.makeText(
+                                            this@DataPelanggarActivity,
+                                            "Berhasil dihapus",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                            }
+                            builderdelete.setNegativeButton("Cancel") { _, _ ->
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Data tidak jadi dihapus",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            val dialogdelete = builderdelete.create()
+                            dialogdelete.show()
+                        }
+                    } else {
+                        siswa_empty.visibility = View.VISIBLE
+                        list_datapel.visibility = View.GONE
+                    }
+                }
+            })
+        }
+    }
+
+    private fun getDataPenghargaan(query: String?) {
+        progress_bar.visibility = View.VISIBLE
+        list_datapel.layoutManager = LinearLayoutManager(this)
+        list_datapel.hasFixedSize()
+        val database = FirebaseDatabase.getInstance().reference
+
+        if (query != null) {
+            listSiswa = arrayListOf()
+            database.child("Penghargaan").orderByChild("nama_siswa").startAt(query)
+                .endAt(query + "\uf8ff")
                 .addValueEventListener(object : ValueEventListener {
                     override fun onCancelled(error: DatabaseError) {
-                        Toast.makeText(this@DataPelanggarActivity, "Somethings wrong", Toast.LENGTH_SHORT)
+                        Toast.makeText(
+                            this@DataPelanggarActivity,
+                            "Somethings wrong",
+                            Toast.LENGTH_SHORT
+                        )
                             .show()
                     }
+
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
                             listSiswa!!.clear()
@@ -141,40 +239,139 @@ class DataPelanggarActivity : AppCompatActivity() {
                             list_datapel.visibility = View.VISIBLE
 
                             adapter.onItemClick = { selectedSiswa ->
-                                val intent = Intent(this@DataPelanggarActivity, CatatPelanggaranActivity::class.java)
-                                intent.putExtra(
-                                    CatatPelanggaranActivity.DATA_PELANGGAR,
-                                    selectedSiswa
+                                val intent = Intent(
+                                    this@DataPelanggarActivity,
+                                    DetailPelanggarActivity::class.java
                                 )
+                                intent.putExtra(DetailPelanggarActivity.DATA_NIS, selectedSiswa.nis)
+                                intent.putExtra(DetailPelanggarActivity.DATA_SISWA, "reward")
                                 startActivity(intent)
                             }
 
                             adapter.onItemDeleteClick = { selectedSiswa ->
                                 val builderdelete = AlertDialog.Builder(this@DataPelanggarActivity)
                                 builderdelete.setTitle("Warning!")
-                                builderdelete.setMessage("Are you sure want to delete ${selectedSiswa!!.nama_siswa} ?")
+                                builderdelete.setMessage("Are you sure want to delete ${selectedSiswa.nama_siswa} ?")
                                 builderdelete.setPositiveButton("Delete") { _, _ ->
-                                    database.child("Pelanggar").child(selectedSiswa.nis!!).removeValue()
+                                    database.child("Pelanggar").child(selectedSiswa.nis!!)
+                                        .removeValue()
                                         .addOnCompleteListener {
-                                            Toast.makeText(this@DataPelanggarActivity, "Berhasil dihapus", Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(
+                                                this@DataPelanggarActivity,
+                                                "Berhasil dihapus",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
                                         }
                                 }
                                 builderdelete.setNegativeButton("Cancel") { _, _ ->
-                                    Toast.makeText(applicationContext, "Data tidak jadi dihapus", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(
+                                        applicationContext,
+                                        "Data tidak jadi dihapus",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                 }
                                 val dialogdelete = builderdelete.create()
                                 dialogdelete.show()
                             }
 
-                        }
-                        else {
+                        } else {
                             siswa_empty.visibility = View.VISIBLE
                             list_datapel.visibility = View.GONE
                         }
                     }
                 })
+        } else {
+            listSiswa = arrayListOf()
+            database.child("Penghargaan").addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(
+                        this@DataPelanggarActivity,
+                        "Somethings wrong",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        listSiswa!!.clear()
+                        for (x in snapshot.children) {
+                            val siswa = x.getValue(Catat::class.java)
+                            listSiswa!!.add(siswa!!)
+                        }
+                        val adapter = AdapterDataPelanggar(listSiswa!!)
+                        list_datapel.adapter = adapter
+                        progress_bar.visibility = View.GONE
+                        siswa_empty.visibility = View.GONE
+                        list_datapel.visibility = View.VISIBLE
+
+                        adapter.onItemClick = { selectedSiswa ->
+                            val intent = Intent(
+                                this@DataPelanggarActivity,
+                                DetailPelanggarActivity::class.java
+                            )
+                            intent.putExtra(DetailPelanggarActivity.DATA_NIS, selectedSiswa.nis)
+                            intent.putExtra(DetailPelanggarActivity.DATA_SISWA, "reward")
+                            startActivity(intent)
+                        }
+
+                        adapter.onItemDeleteClick = { selectedSiswa ->
+                            val builderdelete = AlertDialog.Builder(this@DataPelanggarActivity)
+                            builderdelete.setTitle("Warning!")
+                            builderdelete.setMessage("Are you sure want to delete ${selectedSiswa.nama_siswa} ?")
+                            builderdelete.setPositiveButton("Delete") { _, _ ->
+                                database.child("Pelanggar").child(selectedSiswa.nis!!).removeValue()
+                                    .addOnCompleteListener {
+                                        Toast.makeText(
+                                            this@DataPelanggarActivity,
+                                            "Berhasil dihapus",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                            }
+                            builderdelete.setNegativeButton("Cancel") { _, _ ->
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Data tidak jadi dihapus",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            val dialogdelete = builderdelete.create()
+                            dialogdelete.show()
+                        }
+                    } else {
+                        siswa_empty.visibility = View.VISIBLE
+                        list_datapel.visibility = View.GONE
+                    }
+                }
+            })
 
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.search_menu, menu)
+
+        searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        searchView = menu.findItem(R.id.search_bar).actionView as SearchView
+
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        searchView.queryHint = "Cari"
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(query: String): Boolean {
+                if (data == "langgar") {
+                    getDataPelanggaran(query)
+                } else {
+                    getDataPenghargaan(query)
+                }
+                return true
+            }
+        })
+        return true
     }
 
     override fun onBackPressed() {
