@@ -70,6 +70,7 @@ class DashboardFragment : Fragment(), View.OnClickListener {
             R.id.button_penghargaan -> {
                 pindah = Intent(context, PenghargaanActivity::class.java)
                 pindah.putExtra(PenghargaanActivity.NIS_SISWA, nis)
+                pindah.putExtra(PenghargaanActivity.DATA_ACTIVITY, "siswa")
             }
             R.id.button_data_pelanggaran -> {
                 pindah = Intent(context, PelanggaranActivity::class.java)
@@ -79,6 +80,7 @@ class DashboardFragment : Fragment(), View.OnClickListener {
             R.id.button_data_penghargaan -> {
                 pindah = Intent(context, PenghargaanActivity::class.java)
                 pindah.putExtra(PenghargaanActivity.NIS_SISWA, nis)
+                pindah.putExtra(PenghargaanActivity.DATA_ACTIVITY, "data")
             }
         }
 

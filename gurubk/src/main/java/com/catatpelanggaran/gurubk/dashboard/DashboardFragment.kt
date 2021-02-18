@@ -2,15 +2,13 @@ package com.catatpelanggaran.gurubk.dashboard
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.catatpelanggaran.gurubk.R
-import com.catatpelanggaran.gurubk.dashboard.catat.CatatPelanggaranActivity
 import com.catatpelanggaran.gurubk.dashboard.catat.KelasActivity
 import com.catatpelanggaran.gurubk.dashboard.datapelanggar.DataPelanggarActivity
-import com.catatpelanggaran.gurubk.dashboard.gurubk.BkActivity
 import com.catatpelanggaran.gurubk.dashboard.pelanggaran.PelanggaranActivity
 import com.catatpelanggaran.gurubk.dashboard.penghargaan.PenghargaanActivity
 import kotlinx.android.synthetic.main.fragment_dashboard.*
@@ -31,9 +29,11 @@ class DashboardFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         catat_pelanggaran.setOnClickListener(this)
-        data_pelanggaran.setOnClickListener(this)
-        buat_laporan.setOnClickListener(this)
+        catat_penghargaan.setOnClickListener(this)
+        data_pelanggar.setOnClickListener(this)
         data_penghargaan.setOnClickListener(this)
+        list_pelanggaran.setOnClickListener(this)
+        list_penghargaan.setOnClickListener(this)
 
         nip = activity?.intent?.getStringExtra("NIP").toString()
     }
@@ -44,15 +44,25 @@ class DashboardFragment : Fragment(), View.OnClickListener {
         when (view.id) {
             R.id.catat_pelanggaran -> {
                 intent = Intent(context, KelasActivity::class.java)
+                intent.putExtra(KelasActivity.DATA_SISWA, "langgar")
             }
-            R.id.data_pelanggaran -> {
+            R.id.catat_penghargaan -> {
+                intent = Intent(context, KelasActivity::class.java)
+                intent.putExtra(KelasActivity.DATA_SISWA, "reward")
+            }
+            R.id.list_pelanggaran -> {
                 intent = Intent(context, PelanggaranActivity::class.java)
             }
-            R.id.buat_laporan -> {
+            R.id.list_penghargaan -> {
+                intent = Intent(context, PenghargaanActivity::class.java)
+            }
+            R.id.data_pelanggar -> {
                 intent = Intent(context, DataPelanggarActivity::class.java)
+                intent.putExtra(DataPelanggarActivity.DATA_SISWA, "langgar")
             }
             R.id.data_penghargaan -> {
-                intent = Intent(context, PenghargaanActivity::class.java)
+                intent = Intent(context, DataPelanggarActivity::class.java)
+                intent.putExtra(DataPelanggarActivity.DATA_SISWA, "reward")
             }
         }
         startActivity(intent)

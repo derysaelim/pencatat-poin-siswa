@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.catatpelanggaran.gurubk.R
 import com.catatpelanggaran.gurubk.adapter.AdapterKelas
 import com.catatpelanggaran.gurubk.model.Kelas
-import com.catatpelanggaran.gurubk.model.Pelanggaran
-import com.catatpelanggaran.gurubk.model.Siswa
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -24,28 +22,35 @@ import kotlinx.android.synthetic.main.activity_kelas.*
 
 class KelasActivity : AppCompatActivity() {
 
+    companion object {
+        const val DATA_SISWA = "DATA_SISWA"
+    }
+
     var listKelas: ArrayList<Kelas>? = null
 
     lateinit var searchManager: SearchManager
     lateinit var searchView: SearchView
+    lateinit var data: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kelas)
         setSupportActionBar(toolbar_kelas)
 
+        data = intent.getStringExtra(DATA_SISWA).toString()
+
         back_button.setOnClickListener {
             onBackPressed()
         }
-        getData(null)
+        getData(null, data)
     }
 
     override fun onResume() {
         super.onResume()
-        getData(null)
+        getData(null, data)
     }
 
-    private fun getData(query: String?) {
+    private fun getData(query: String?, data: String) {
         progress_bar.visibility = View.VISIBLE
         list_kelas.layoutManager = LinearLayoutManager(this)
         list_kelas.hasFixedSize()
@@ -77,6 +82,7 @@ class KelasActivity : AppCompatActivity() {
                             adapter.onItemClick = { selectedKelas ->
                                 val intent = Intent(this@KelasActivity, SiswaActivity::class.java)
                                 intent.putExtra(SiswaActivity.DATA_KELAS, selectedKelas)
+                                intent.putExtra(SiswaActivity.DATA_SISWA, data)
                                 startActivity(intent)
                             }
                         } else {
@@ -111,6 +117,7 @@ class KelasActivity : AppCompatActivity() {
                             adapter.onItemClick = { selectedKelas ->
                                 val intent = Intent(this@KelasActivity, SiswaActivity::class.java)
                                 intent.putExtra(SiswaActivity.DATA_KELAS, selectedKelas)
+                                intent.putExtra(SiswaActivity.DATA_SISWA, this@KelasActivity.data)
                                 startActivity(intent)
                             }
                         } else {
@@ -137,7 +144,7 @@ class KelasActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(query: String): Boolean {
-                getData(query)
+                getData(query, data)
                 return true
             }
         })
