@@ -13,7 +13,6 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.catatpelanggaran.gurubk.R
 import com.catatpelanggaran.gurubk.adapter.AdapterDataPelanggar
-import com.catatpelanggaran.gurubk.dashboard.catat.CatatPelanggaranActivity
 import com.catatpelanggaran.gurubk.model.Catat
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -99,11 +98,10 @@ class DataPelanggarActivity : AppCompatActivity() {
                             adapter.onItemClick = { selectedSiswa ->
                                 val intent = Intent(
                                     this@DataPelanggarActivity,
-                                    CatatPelanggaranActivity::class.java
+                                    DetailPelanggarActivity::class.java
                                 )
-                                intent.putExtra(
-                                    CatatPelanggaranActivity.DATA_PELANGGAR, selectedSiswa
-                                )
+                                intent.putExtra(DetailPelanggarActivity.DATA_NIS, selectedSiswa.nis)
+                                intent.putExtra(DetailPelanggarActivity.DATA_SISWA, "langgar")
                                 startActivity(intent)
                             }
 
@@ -139,8 +137,7 @@ class DataPelanggarActivity : AppCompatActivity() {
                         }
                     }
                 })
-        }
-        else {
+        } else {
             listSiswa = arrayListOf()
             database.child("Pelanggar").addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {
@@ -148,8 +145,7 @@ class DataPelanggarActivity : AppCompatActivity() {
                         this@DataPelanggarActivity,
                         "Somethings wrong",
                         Toast.LENGTH_SHORT
-                    )
-                        .show()
+                    ).show()
                 }
 
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -166,6 +162,13 @@ class DataPelanggarActivity : AppCompatActivity() {
                         list_datapel.visibility = View.VISIBLE
 
                         adapter.onItemClick = { selectedSiswa ->
+                            val intent = Intent(
+                                this@DataPelanggarActivity,
+                                DetailPelanggarActivity::class.java
+                            )
+                            intent.putExtra(DetailPelanggarActivity.DATA_NIS, selectedSiswa.nis)
+                            intent.putExtra(DetailPelanggarActivity.DATA_SISWA, "langgar")
+                            startActivity(intent)
                         }
 
                         adapter.onItemDeleteClick = { selectedSiswa ->
@@ -238,11 +241,10 @@ class DataPelanggarActivity : AppCompatActivity() {
                             adapter.onItemClick = { selectedSiswa ->
                                 val intent = Intent(
                                     this@DataPelanggarActivity,
-                                    CatatPelanggaranActivity::class.java
+                                    DetailPelanggarActivity::class.java
                                 )
-                                intent.putExtra(
-                                    CatatPelanggaranActivity.DATA_PELANGGAR, selectedSiswa
-                                )
+                                intent.putExtra(DetailPelanggarActivity.DATA_NIS, selectedSiswa.nis)
+                                intent.putExtra(DetailPelanggarActivity.DATA_SISWA, "reward")
                                 startActivity(intent)
                             }
 
@@ -304,6 +306,13 @@ class DataPelanggarActivity : AppCompatActivity() {
                         list_datapel.visibility = View.VISIBLE
 
                         adapter.onItemClick = { selectedSiswa ->
+                            val intent = Intent(
+                                this@DataPelanggarActivity,
+                                DetailPelanggarActivity::class.java
+                            )
+                            intent.putExtra(DetailPelanggarActivity.DATA_NIS, selectedSiswa.nis)
+                            intent.putExtra(DetailPelanggarActivity.DATA_SISWA, "reward")
+                            startActivity(intent)
                         }
 
                         adapter.onItemDeleteClick = { selectedSiswa ->

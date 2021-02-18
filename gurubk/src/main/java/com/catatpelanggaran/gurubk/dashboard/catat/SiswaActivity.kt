@@ -95,6 +95,7 @@ class SiswaActivity : AppCompatActivity() {
                                         CatatPelanggaranActivity.DATA_PELANGGAR,
                                         selectedSiswa
                                     )
+                                    siswa.putExtra(CatatPelanggaranActivity.DATA_SISWA, "catat")
                                     startActivity(siswa)
                                 } else {
                                     val siswa = Intent(
@@ -147,6 +148,7 @@ class SiswaActivity : AppCompatActivity() {
                                         CatatPelanggaranActivity.DATA_PELANGGAR,
                                         selectedSiswa
                                     )
+                                    siswa.putExtra(CatatPelanggaranActivity.DATA_SISWA, "catat")
                                     startActivity(siswa)
                                 } else {
                                     val siswa = Intent(

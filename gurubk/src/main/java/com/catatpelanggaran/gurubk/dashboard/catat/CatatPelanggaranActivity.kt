@@ -24,17 +24,21 @@ class CatatPelanggaranActivity : AppCompatActivity() {
 
     companion object {
         const val DATA_PELANGGAR = "dataPelanggar"
+        const val DATA_SISWA = "DATA_SISWA"
     }
 
     lateinit var adapterPelanggaran: ArrayAdapter<String>
     lateinit var dataListPelanggaran: ArrayList<String>
     lateinit var dataListHukuman: ArrayList<String>
     lateinit var dataListPoin: ArrayList<String>
+    lateinit var data: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_catat_pelanggaran)
         setSupportActionBar(toolbar_catat)
+
+        data = intent.getStringExtra(DATA_SISWA).toString()
 
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
@@ -89,20 +93,33 @@ class CatatPelanggaranActivity : AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {}
             })
 
-        if (dataCatat != null) {
-            if (dataCatat!!.poin != null) {
-                setStatus(false)
-                setJenpel(true)
-                getData(dataCatat)
-            } else {
-                setStatus(true)
-                setJenpel(false)
-                getData(dataCatat)
-                retrieveData()
-            }
-        }
-        else {
+//        if (dataCatat != null) {
+//            if (dataCatat!!.poin != null) {
+//                setStatus(false)
+//                setJenpel(true)
+//                getData(dataCatat)
+//                Log.e("poin", "1")
+//            } else {
+//                setStatus(true)
+//                setJenpel(false)
+//                getData(dataCatat)
+//                retrieveData()
+//                Log.e("poin", "2")
+//            }
+//        }
+//        else {
+//            retrieveData()
+//        }
+
+        if (data == "catat") {
             retrieveData()
+            setStatus(true)
+            setJenpel(false)
+            getData(dataCatat)
+        } else {
+            setStatus(false)
+            setJenpel(true)
+            getData(dataCatat)
         }
 
         button_simpanpelanggaran.setOnClickListener {
@@ -231,13 +248,16 @@ class CatatPelanggaranActivity : AppCompatActivity() {
     private fun setStatus(status: Boolean) {
         if (status) {
             detail_pelanggaran.visibility = View.GONE
+        } else {
+            detail_pelanggaran.visibility = View.VISIBLE
         }
     }
 
     private fun setJenpel(status: Boolean) {
         if (status) {
-            message_button.visibility = View.VISIBLE
             jenispel.visibility = View.GONE
+        } else {
+            jenispel.visibility = View.VISIBLE
         }
     }
 

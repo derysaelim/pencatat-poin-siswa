@@ -1,6 +1,5 @@
 package com.catatpelanggaran.gurubk.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,8 +27,6 @@ class AdapterSiswa(val siswa: ArrayList<Catat>) : RecyclerView.Adapter<AdapterSi
         fun bind(dataCatat: Catat){
             with(itemView) {
                 val absen = position + 1
-                Log.e("Data", "$dataCatat")
-
                 nama_siswa.text = dataCatat.nama_siswa
                 nis_siswa.text = dataCatat.nis
                 no_absen.text = absen.toString()
