@@ -35,9 +35,9 @@ class GurubkActivity : AppCompatActivity() {
         nip = intent.getStringExtra("NIP").toString()
         getData(nip)
 
-        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, profileFrag, "2")
+        fragmentManager.beginTransaction().add(R.id.nav_host_fragment_guru, profileFrag, "2")
             .hide(profileFrag).commit()
-        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, homeFrag, "1").commit()
+        fragmentManager.beginTransaction().add(R.id.nav_host_fragment_guru, homeFrag, "1").commit()
 
         bottom_nav_guru.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -45,13 +45,13 @@ class GurubkActivity : AppCompatActivity() {
                     fragmentName = "home"
                     fragmentManager.beginTransaction().hide(fragment).show(homeFrag).commit()
                     fragment = homeFrag
-                    setting_admin.visibility = View.GONE
+                    setting_guru.visibility = View.GONE
                 }
                 R.id.profile -> {
                     fragmentName = "profile"
                     fragmentManager.beginTransaction().hide(fragment).show(profileFrag).commit()
                     fragment = profileFrag
-                    setting_admin.visibility = View.VISIBLE
+                    setting_guru.visibility = View.VISIBLE
                 }
             }
             true
