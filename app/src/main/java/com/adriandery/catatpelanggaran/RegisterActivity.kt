@@ -1,9 +1,9 @@
 package com.adriandery.catatpelanggaran
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.adriandery.catatpelanggaran.model.Login
 import com.adriandery.catatpelanggaran.model.Ortu
 import com.google.firebase.database.DataSnapshot
@@ -35,6 +35,7 @@ class RegisterActivity : AppCompatActivity() {
         back_login.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

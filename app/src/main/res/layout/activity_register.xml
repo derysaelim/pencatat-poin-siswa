@@ -1,136 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingEnd="42dp"
-    android:paddingStart="42dp"
-    android:orientation="vertical"
     android:layout_gravity="center"
     tools:context=".RegisterActivity">
 
     <LinearLayout
-        android:layout_above="@+id/white_space"
-        android:layout_marginBottom="58dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
+        android:paddingEnd="42dp"
+        android:paddingStart="42dp"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_marginBottom="58dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="images decs"
-            android:src="@drawable/logo_smk"/>
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-        <ImageView
-            android:layout_width="0dp"
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="images decs"
+                android:src="@drawable/logo_smk" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:contentDescription="image decs"
+                android:src="@drawable/login_icon" />
+        </LinearLayout>
+
+        <Space
+            android:id="@+id/white_space"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_centerInParent="true" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_nis"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:contentDescription="image decs"
-            android:src="@drawable/login_icon"/>
+            android:layout_below="@+id/white_space"
+            android:background="@drawable/custom_edittext"
+            android:padding="8dp"
+            android:inputType="number"
+            android:hint="NIS"
+            android:fontFamily="@font/roboto"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/username_icon" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/input_nis"
+            android:background="@drawable/custom_edittext"
+            android:padding="8dp"
+            android:layout_marginTop="12dp"
+            android:inputType="textPersonName"
+            android:hint="Nama Lengkap"
+            android:fontFamily="@font/roboto"
+            android:drawableStart="@drawable/name_icon"
+            android:drawablePadding="8dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_nohp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/input_nama"
+            android:background="@drawable/custom_edittext"
+            android:padding="8dp"
+            android:layout_marginTop="12dp"
+            android:inputType="number"
+            android:hint="Nomor HP"
+            android:fontFamily="@font/roboto"
+            android:drawableStart="@drawable/phone_icon"
+            android:drawablePadding="8dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_password"
+            android:layout_below="@+id/input_nohp"
+            android:background="@drawable/custom_edittext"
+            android:padding="8dp"
+            android:layout_marginTop="12dp"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:fontFamily="@font/roboto"
+            android:drawableStart="@drawable/lock_icon"
+            android:drawablePadding="8dp" />
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_konfirmasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/input_password"
+            android:background="@drawable/custom_edittext"
+            android:padding="8dp"
+            android:layout_marginTop="12dp"
+            android:inputType="textPassword"
+            android:hint="Konfirmasi Password"
+            android:fontFamily="@font/roboto"
+            android:drawableStart="@drawable/lock_icon"
+            android:drawablePadding="8dp" />
+
+        <Button
+            android:id="@+id/button_daftar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/nohp_login"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button_login"
+            android:text="Daftar"
+            android:textColor="@android:color/white" />
+
+        <RelativeLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_daftar">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sudah "
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/center_text"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/center_text"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Punya Akun? " />
+
+            <TextView
+                android:layout_toEndOf="@id/center_text"
+                android:id="@+id/back_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Masuk"
+                android:textAllCaps="false"
+                android:textColor="@color/colorAccent" />
+        </RelativeLayout>
     </LinearLayout>
 
-    <Space
-        android:id="@+id/white_space"
-        android:layout_width="match_parent"
-        android:layout_height="12dp"
-        android:layout_centerInParent="true" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_nis"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/white_space"
-        android:background="@drawable/custom_edittext"
-        android:padding="8dp"
-        android:inputType="number"
-        android:hint="Username"
-        android:fontFamily="@font/roboto"
-        android:drawablePadding="8dp"
-        android:drawableLeft="@drawable/username_icon"/>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_nama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/input_nis"
-        android:background="@drawable/custom_edittext"
-        android:padding="8dp"
-        android:layout_marginTop="12dp"
-        android:inputType="textPersonName"
-        android:hint="Nama Lengkap"
-        android:fontFamily="@font/roboto"
-        android:drawableStart="@drawable/name_icon"
-        android:drawablePadding="8dp"/>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_nohp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/input_nama"
-        android:background="@drawable/custom_edittext"
-        android:padding="8dp"
-        android:layout_marginTop="12dp"
-        android:inputType="number"
-        android:hint="Nomor HP"
-        android:fontFamily="@font/roboto"
-        android:drawableStart="@drawable/phone_icon"
-        android:drawablePadding="8dp"/>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/input_password"
-        android:layout_below="@+id/input_nohp"
-        android:background="@drawable/custom_edittext"
-        android:padding="8dp"
-        android:layout_marginTop="12dp"
-        android:inputType="textPassword"
-        android:hint="Password"
-        android:fontFamily="@font/roboto"
-        android:drawableStart="@drawable/lock_icon"
-        android:drawablePadding="8dp"/>
-
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_konfirmasi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/input_password"
-        android:background="@drawable/custom_edittext"
-        android:padding="8dp"
-        android:layout_marginTop="12dp"
-        android:inputType="textPassword"
-        android:hint="Konfirmasi Password"
-        android:fontFamily="@font/roboto"
-        android:drawableStart="@drawable/lock_icon"
-        android:drawablePadding="8dp" />
-
-
-    <Button
-        android:id="@+id/button_daftar"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/nohp_login"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/button_login"
-        android:text="Daftar"
-        android:textColor="@android:color/white"/>
-
-    <Button
-        android:id="@+id/back_login"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/nohp_login"
-        android:background="#00000000"
-        android:layout_marginTop="5dp"
-        android:text="Sudah punya akun? Login"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryDark"/>
-
-
-</LinearLayout>
+</ScrollView>

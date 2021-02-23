@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="280dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_above="@id/exit_text"
+                android:id="@+id/warning_image"
+
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/icon_list_pelanggaran"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/exit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textSize="26sp"
+                android:fontFamily="@font/roboto"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:text="Warning!" />
+
+            <TextView
+                android:id="@+id/warning_message"
+                android:layout_below="@id/exit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@android:color/black"
+                android:text="Apa Kamu Yakin Mau Keluar?" />
+
+            <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:layout_weight="1"
+                    android:id="@+id/buttoncancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_cancel_guru"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:text="Cancel"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:layout_weight="1"
+                    android:id="@+id/buttonexit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_exit_guru"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:text="Exit"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
