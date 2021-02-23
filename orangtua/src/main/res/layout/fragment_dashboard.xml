@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorBlack"
     tools:context=".dashboard.DashboardFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,7 +42,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@android:color/white"
+                app:cardBackgroundColor="@color/colorYellow"
                 app:cardCornerRadius="24dp">
 
                 <LinearLayout
@@ -96,8 +97,9 @@
                 android:layout_margin="16dp"
                 android:layout_weight="1"
                 android:padding="10dp"
+                app:cardBackgroundColor="@color/colorGrey"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="4dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -121,7 +123,7 @@
                         android:layout_marginBottom="12dp"
                         android:fontFamily="@font/roboto"
                         android:text="Pelanggaran"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="20sp" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -133,8 +135,9 @@
                 android:layout_margin="16dp"
                 android:layout_weight="1"
                 android:padding="10dp"
+                app:cardBackgroundColor="@color/colorGrey"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="4dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -157,7 +160,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/roboto"
                         android:text="Penghargaan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="20sp" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -184,8 +187,9 @@
                 android:layout_margin="16dp"
                 android:layout_weight="1"
                 android:padding="10dp"
+                app:cardBackgroundColor="@color/colorGrey"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="4dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -209,7 +213,7 @@
                         android:fontFamily="@font/roboto"
                         android:gravity="center"
                         android:text="Kategori\nPelanggaran"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="20sp" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -221,8 +225,9 @@
                 android:layout_margin="16dp"
                 android:layout_weight="1"
                 android:padding="10dp"
+                app:cardBackgroundColor="@color/colorGrey"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="4dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -246,7 +251,7 @@
                         android:fontFamily="@font/roboto"
                         android:gravity="center"
                         android:text="Kategori\nPenghargaan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="20sp" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>

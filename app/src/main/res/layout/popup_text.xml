@@ -19,11 +19,9 @@
             <ImageView
                 android:layout_above="@id/exit_text"
                 android:id="@+id/warning_image"
-
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/icon_list_pelanggaran"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY" />
 
@@ -64,9 +62,12 @@
                     android:id="@+id/buttoncancel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_cancel_guru"
+                    android:background="@drawable/button_test_cancel"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:foregroundTint="@color/colorAccent"
                     android:text="Cancel"
                     android:textAllCaps="false"
+                    android:textColor="@android:color/white"
                     android:fontFamily="@font/roboto"
                     android:textSize="20sp" />
 
@@ -75,7 +76,7 @@
                     android:id="@+id/buttonexit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_exit_guru"
+                    android:background="@drawable/button_test_exit"
                     android:backgroundTint="@android:color/holo_red_light"
                     android:text="Exit"
                     android:textAllCaps="false"
