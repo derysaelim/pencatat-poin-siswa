@@ -15,26 +15,44 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="80dp"
             android:background="?attr/colorPrimaryDark"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="16dp">
+                android:paddingTop="16dp">
 
                 <TextView
+                    android:id="@+id/hai_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="14sp"
+                    android:text="Selamat Datang," />
+
+                <TextView
+                    android:layout_below="@id/hai_text"
                     android:id="@+id/admin_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
                     android:textColor="@android:color/white"
                     android:fontFamily="@font/roboto"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
-            </RelativeLayout>
 
+                <ImageButton
+                    android:id="@+id/setting_admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/setting_icon"
+                    android:layout_marginEnd="16dp"
+                    android:visibility="gone"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
         </com.google.android.material.appbar.MaterialToolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
