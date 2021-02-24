@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.catatpelanggaran.admin.R
-import com.catatpelanggaran.admin.model.Guru
 import com.catatpelanggaran.admin.model.Kelas
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

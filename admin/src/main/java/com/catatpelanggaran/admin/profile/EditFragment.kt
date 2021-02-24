@@ -1,10 +1,10 @@
 package com.catatpelanggaran.admin.profile
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.catatpelanggaran.admin.R
 import com.catatpelanggaran.admin.model.Guru
 import com.catatpelanggaran.admin.model.Login
@@ -12,13 +12,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_add_petugas.*
 import kotlinx.android.synthetic.main.fragment_edit.*
-import kotlinx.android.synthetic.main.fragment_edit.input_konfirmasi
-import kotlinx.android.synthetic.main.fragment_edit.input_namapetugas
-import kotlinx.android.synthetic.main.fragment_edit.input_nippetugas
-import kotlinx.android.synthetic.main.fragment_edit.input_nohppetugas
-import kotlinx.android.synthetic.main.fragment_edit.input_password
 
 class EditFragment : Fragment() {
 

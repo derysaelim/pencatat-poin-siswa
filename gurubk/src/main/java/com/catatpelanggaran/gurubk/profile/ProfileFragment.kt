@@ -1,10 +1,10 @@
 package com.catatpelanggaran.gurubk.profile
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.catatpelanggaran.gurubk.R
 import com.catatpelanggaran.gurubk.model.Guru
 import com.catatpelanggaran.gurubk.model.Login

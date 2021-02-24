@@ -2,17 +2,15 @@ package com.catatpelanggaran.admin.dashboard
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.catatpelanggaran.admin.R
 import com.catatpelanggaran.admin.dashboard.guru.GuruActivity
-import com.catatpelanggaran.admin.dashboard.gurubk.BkActivity
 import com.catatpelanggaran.admin.dashboard.kelas.KelasActivity
 import com.catatpelanggaran.admin.dashboard.pelanggaran.PelanggaranActivity
 import com.catatpelanggaran.admin.dashboard.penghargaan.PenghargaanActivity
-import com.catatpelanggaran.admin.dashboard.petugas.PetugasActivity
 import com.catatpelanggaran.admin.dashboard.siswa.SiswaActivity
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 

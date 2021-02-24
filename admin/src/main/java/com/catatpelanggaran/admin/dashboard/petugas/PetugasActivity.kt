@@ -3,14 +3,13 @@ package com.catatpelanggaran.admin.dashboard.petugas
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.catatpelanggaran.admin.R
@@ -21,9 +20,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_petugas.*
-import kotlinx.android.synthetic.main.activity_petugas.back_button
-import kotlinx.android.synthetic.main.activity_petugas.progress_bar
-import kotlin.math.log
 
 class PetugasActivity : AppCompatActivity() {
 

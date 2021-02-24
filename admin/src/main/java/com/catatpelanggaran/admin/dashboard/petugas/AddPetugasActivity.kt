@@ -1,11 +1,10 @@
 package com.catatpelanggaran.admin.dashboard.petugas
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.catatpelanggaran.admin.R
 import com.catatpelanggaran.admin.model.Guru
 import com.catatpelanggaran.admin.model.Login

@@ -19,7 +19,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_ortu.*
-import kotlinx.android.synthetic.main.app_bar_main.*
 
 class OrtuActivity : AppCompatActivity() {
 
@@ -37,7 +36,7 @@ class OrtuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ortu)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolbar_ortu)
 
         popUpMenu = Dialog(this)
 

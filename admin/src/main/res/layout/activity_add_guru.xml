@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBlack"
     tools:context=".dashboard.guru.AddGuruActivity">
 
     <LinearLayout
@@ -69,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
                 android:text="Nomor Induk PNS"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <EditText
@@ -77,6 +79,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/custom_edittext"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/colorLightGrey"
                 android:hint="NIP"
                 android:inputType="number"
                 android:padding="8dp" />
@@ -87,6 +91,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto"
                 android:text="Nama Lengkap"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <EditText
@@ -96,6 +101,8 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/custom_edittext"
                 android:hint="Nama Lengkap"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/colorLightGrey"
                 android:inputType="textPersonName"
                 android:padding="8dp" />
 
@@ -105,6 +112,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto"
                 android:text="Nomor HP"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <EditText
@@ -114,6 +122,8 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/custom_edittext"
                 android:hint="Nomor HP"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/colorLightGrey"
                 android:inputType="number"
                 android:padding="8dp" />
 
@@ -123,6 +133,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto"
                 android:text="Password"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <EditText
@@ -132,6 +143,8 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/custom_edittext"
                 android:hint="Password"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/colorLightGrey"
                 android:inputType="textPassword"
                 android:padding="8dp" />
 
@@ -141,6 +154,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto"
                 android:text="Konfirmasi Password"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <EditText
@@ -150,6 +164,8 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/custom_edittext"
                 android:hint="Password"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/colorLightGrey"
                 android:inputType="textPassword"
                 android:padding="8dp" />
 
@@ -159,6 +175,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto"
                 android:text="Role"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <Spinner
@@ -168,12 +185,14 @@
                 android:layout_marginTop="8dp"
                 android:entries="@array/role" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_simpanguru"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="28dp"
                 android:background="@drawable/button_login"
+                app:backgroundTint="@color/colorYellow"
+                android:textColor="@android:color/black"
                 android:text="Simpan" />
         </LinearLayout>
     </LinearLayout>

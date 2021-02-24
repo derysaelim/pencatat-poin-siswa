@@ -2,16 +2,15 @@ package com.catatpelanggaran.gurubk.dashboard.pelanggaran
 
 import android.app.SearchManager
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.catatpelanggaran.gurubk.R
 import com.catatpelanggaran.gurubk.adapter.AdapterPelanggaran
-import com.catatpelanggaran.gurubk.model.Catat
 import com.catatpelanggaran.gurubk.model.Pelanggaran
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

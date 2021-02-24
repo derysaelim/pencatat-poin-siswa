@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard">Dashboard</string>
-    <string name="edit_profile">Edit Profile</string>
-    <string name="logout">Logout</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="siswa">Siswa</string>
     <string name="kelas">Kelas</string>
     <string name="pelanggaran">Pelanggaran</string>
     <string name="penghargaan">Penghargaan</string>
-    <string name="guru">Guru</string>
+    <string name="guru">Guru &amp; Petugas TU</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
 

@@ -1,16 +1,13 @@
 package com.catatpelanggaran.admin.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.catatpelanggaran.admin.R
 import com.catatpelanggaran.admin.model.Guru
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.item_siswa.view.*
 
 class AdapterGuru(val guru: ArrayList<Guru>) :

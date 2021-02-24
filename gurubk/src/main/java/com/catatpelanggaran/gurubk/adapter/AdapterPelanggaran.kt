@@ -1,16 +1,12 @@
 package com.catatpelanggaran.gurubk.adapter
 
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.catatpelanggaran.gurubk.R
-import com.catatpelanggaran.gurubk.model.Catat
 import com.catatpelanggaran.gurubk.model.Pelanggaran
 import kotlinx.android.synthetic.main.item_pelanggaran.view.*
-import kotlinx.android.synthetic.main.item_siswa.view.*
 
 class AdapterPelanggaran(val pelanggaran: ArrayList<Pelanggaran>) :
     RecyclerView.Adapter<AdapterPelanggaran.ViewHolder>() {

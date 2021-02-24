@@ -1,19 +1,14 @@
 package com.catatpelanggaran.admin.dashboard.pelanggaran
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.catatpelanggaran.admin.R
-import com.catatpelanggaran.admin.model.Guru
 import com.catatpelanggaran.admin.model.Pelanggaran
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_add_pelanggaran.*
-import java.lang.Exception
 
 class AddPelanggaranActivity : AppCompatActivity() {
 

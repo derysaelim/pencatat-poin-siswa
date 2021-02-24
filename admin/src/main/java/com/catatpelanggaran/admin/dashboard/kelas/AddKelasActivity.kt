@@ -1,7 +1,6 @@
 package com.catatpelanggaran.admin.dashboard.kelas
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -15,12 +14,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_add_guru.back_button
 import kotlinx.android.synthetic.main.activity_add_kelas.*
-import kotlinx.android.synthetic.main.activity_add_kelas.input_jurusan
-import kotlinx.android.synthetic.main.activity_add_kelas.input_tingkat
-import kotlinx.android.synthetic.main.activity_add_kelas.kelas_B
-import kotlinx.android.synthetic.main.activity_add_kelas.kelas_a
-import kotlinx.android.synthetic.main.activity_add_kelas.kelas_c
-import kotlinx.android.synthetic.main.activity_add_kelas.kelas_d
 import kotlinx.android.synthetic.main.activity_detail_siswa.*
 
 class AddKelasActivity : AppCompatActivity() {

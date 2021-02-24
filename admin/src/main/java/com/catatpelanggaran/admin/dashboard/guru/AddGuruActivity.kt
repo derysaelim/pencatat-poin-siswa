@@ -1,10 +1,10 @@
 package com.catatpelanggaran.admin.dashboard.guru
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.catatpelanggaran.admin.R
 import com.catatpelanggaran.admin.model.Guru
 import com.catatpelanggaran.admin.model.Login
@@ -13,12 +13,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_add_guru.*
-import kotlinx.android.synthetic.main.activity_add_guru.back_button
-import kotlinx.android.synthetic.main.activity_add_guru.delete_button
-import kotlinx.android.synthetic.main.activity_add_guru.input_konfirmasi
-import kotlinx.android.synthetic.main.activity_add_guru.input_password
-import kotlinx.android.synthetic.main.activity_add_guru.input_role
-import java.lang.Exception
 
 class AddGuruActivity : AppCompatActivity() {
 

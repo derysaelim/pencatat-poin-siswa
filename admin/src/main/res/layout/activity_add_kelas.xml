@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBlack"
     tools:context=".dashboard.kelas.AddKelasActivity">
 
     <LinearLayout
@@ -79,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
                 android:text="Tingkat"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <Spinner
@@ -95,6 +97,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto"
                 android:text="Jurusan"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <EditText
@@ -104,6 +107,8 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/custom_edittext"
                 android:hint="Jurusan : RPL, SIJA, TOI"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/colorLightGrey"
                 android:inputType="text"
                 android:maxLength="4"
                 android:padding="8dp" />
@@ -114,6 +119,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto"
                 android:text="Kelas"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <TextView
@@ -138,25 +144,29 @@
                     android:id="@+id/kelas_a"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="A" />
+                    android:text="A"
+                    android:textColor="@android:color/white" />
 
                 <RadioButton
                     android:id="@+id/kelas_B"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="B" />
+                    android:text="B"
+                    android:textColor="@android:color/white" />
 
                 <RadioButton
                     android:id="@+id/kelas_c"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="C" />
+                    android:text="C"
+                    android:textColor="@android:color/white" />
 
                 <RadioButton
                     android:id="@+id/kelas_d"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="D" />
+                    android:text="D"
+                    android:textColor="@android:color/white" />
             </RadioGroup>
 
             <TextView
@@ -165,6 +175,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto"
                 android:text="Walikelas"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <EditText
@@ -185,12 +196,14 @@
                 android:layout_marginTop="8dp"
                 style="@style/Widget.AppCompat.DropDownItem.Spinner" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_simpankelas"
                 android:layout_marginTop="28dp"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/button_login"
+                app:backgroundTint="@color/colorYellow"
+                android:textColor="@android:color/black"
                 android:text="Simpan" />
 
         </LinearLayout>

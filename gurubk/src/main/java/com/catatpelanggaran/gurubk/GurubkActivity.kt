@@ -19,8 +19,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_gurubk.*
-import kotlinx.android.synthetic.main.app_bar_bk.*
-import kotlinx.android.synthetic.main.nav_header_bk.*
 
 class GurubkActivity : AppCompatActivity() {
 

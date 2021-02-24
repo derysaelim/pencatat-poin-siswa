@@ -1,7 +1,7 @@
 package com.catatpelanggaran.admin.dashboard.kelas
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.catatpelanggaran.admin.R
 
 class DetailKelasActivity : AppCompatActivity() {

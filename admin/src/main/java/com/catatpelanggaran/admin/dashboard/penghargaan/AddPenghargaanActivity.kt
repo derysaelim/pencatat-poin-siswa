@@ -1,10 +1,10 @@
 package com.catatpelanggaran.admin.dashboard.penghargaan
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.catatpelanggaran.admin.R
 import com.catatpelanggaran.admin.model.Penghargaan
 import com.google.firebase.database.FirebaseDatabase
@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.activity_add_pelanggaran.back_button
 import kotlinx.android.synthetic.main.activity_add_pelanggaran.button_simpan
 import kotlinx.android.synthetic.main.activity_add_pelanggaran.delete_button
 import kotlinx.android.synthetic.main.activity_add_penghargaan.*
-import java.lang.Exception
 
 class AddPenghargaanActivity : AppCompatActivity() {
 
