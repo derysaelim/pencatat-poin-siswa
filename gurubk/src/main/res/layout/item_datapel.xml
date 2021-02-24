@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/colorGrey"
     app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +19,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
             android:text="1"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -31,8 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/roboto"
-            android:text="Nama Siswa"
-            android:textColor="@android:color/black"
+            android:text=""
+            android:textColor="@android:color/white"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/no_absen"
@@ -44,7 +45,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
             android:text="Poin = 20"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorLightGrey"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@id/no_absen"
             app:layout_constraintTop_toBottomOf="@id/nama_siswa"

@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/button_cancel_guru"
-                    app:backgroundTint="@android:color/white"
+                    app:backgroundTint="@android:color/holo_red_light"
                     android:text="CANCEL"
                     android:textColor="@color/colorBlack" />
 
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/button_exit_guru"
-                    app:backgroundTint="@android:color/holo_red_light"
+                    app:backgroundTint="@color/colorYellow"
                     android:text="EXIT"
                     android:textColor="@color/colorBlack" />
             </LinearLayout>

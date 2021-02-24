@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/colorGrey"
     app:cardCornerRadius="8dp">
     
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="22sp"
             android:fontFamily="@font/roboto"
             android:textStyle="bold"
@@ -32,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="Nama Pelanggaran"
             android:textSize="22sp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:fontFamily="@font/roboto"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
@@ -43,7 +44,7 @@
         <TextView
             android:id="@+id/poin_pel"
             android:text="Poin = 20"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorLightGrey"
             android:fontFamily="@font/roboto"
             android:textSize="18sp"
             android:layout_width="wrap_content"
