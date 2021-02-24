@@ -1,6 +1,9 @@
 package com.catatpelanggaran.orangtua
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -10,6 +13,7 @@ import com.adriandery.catatpelanggaran.LoginActivity
 import com.adriandery.catatpelanggaran.SharedPreferences
 import com.catatpelanggaran.orangtua.dashboard.DashboardFragment
 import com.catatpelanggaran.orangtua.profile.EditFragment
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -20,6 +24,10 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 class OrtuActivity : AppCompatActivity() {
 
     lateinit var nis: String
+    lateinit var popUpMenu: Dialog
+    lateinit var cancelButton: MaterialButton
+    lateinit var exitButtton: MaterialButton
+
     private val homeFrag = DashboardFragment()
     private val profileFrag = EditFragment()
     private val fragmentManager = supportFragmentManager
@@ -30,6 +38,8 @@ class OrtuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ortu)
         setSupportActionBar(toolbar)
+
+        popUpMenu = Dialog(this)
 
         nis = intent.getStringExtra("NIS").toString()
         getData(nis)
@@ -51,10 +61,32 @@ class OrtuActivity : AppCompatActivity() {
                     fragmentManager.beginTransaction().hide(fragment).show(profileFrag).commit()
                     fragment = profileFrag
                     setting_ortu.visibility = View.VISIBLE
+                    setting_ortu.setOnClickListener { createPopUpExit() }
                 }
             }
             true
         }
+
+    }
+
+    private fun createPopUpExit() {
+        popUpMenu.setContentView(R.layout.popup_ortu)
+        cancelButton = popUpMenu.findViewById(R.id.cancel_ortu)
+        exitButtton = popUpMenu.findViewById(R.id.exit_ortu)
+
+        cancelButton.setOnClickListener {
+            popUpMenu.dismiss()
+        }
+        exitButtton.setOnClickListener {
+            popUpMenu.dismiss()
+            val intent = Intent(this@OrtuActivity, LoginActivity::class.java)
+            startActivity(intent)
+            SharedPreferences.clearData(this@OrtuActivity)
+            finish()
+        }
+
+        popUpMenu.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        popUpMenu.show()
 
     }
 
