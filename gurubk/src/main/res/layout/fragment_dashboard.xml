@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBlack"
     tools:context=".dashboard.DashboardFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,8 +44,9 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/colorGrey"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="4dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -69,7 +71,7 @@
                         android:fontFamily="@font/roboto"
                         android:gravity="center"
                         android:text="Catat\nPelanggaran"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -85,7 +87,8 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:padding="10dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardBackgroundColor="@color/colorGrey"
+                app:cardElevation="4dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -109,7 +112,7 @@
                         android:fontFamily="@font/roboto"
                         android:gravity="center"
                         android:text="Catat\nPenghargaan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -140,7 +143,8 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/colorGrey">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -165,7 +169,7 @@
                         android:gravity="center"
                         android:fontFamily="@font/roboto"
                         android:text="Data\nPelanggar"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -181,7 +185,8 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/colorGrey">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -206,7 +211,7 @@
                         android:gravity="center"
                         android:fontFamily="@font/roboto"
                         android:text="Data\nPenghargaan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -237,7 +242,8 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/colorGrey">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -261,7 +267,7 @@
                         android:gravity="center"
                         android:fontFamily="@font/roboto"
                         android:text="List\nPelanggaran"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -277,7 +283,8 @@
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="8dp">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/colorGrey">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -301,7 +308,7 @@
                         android:gravity="center"
                         android:fontFamily="@font/roboto"
                         android:text="List\nPenghargaan"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/white"
                         android:textSize="18sp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>

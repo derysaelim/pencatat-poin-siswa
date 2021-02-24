@@ -59,6 +59,7 @@
                 android:weightSum="2">
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cancel_guru"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -68,6 +69,7 @@
                     android:textColor="@color/colorBlack" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/exit_guru"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

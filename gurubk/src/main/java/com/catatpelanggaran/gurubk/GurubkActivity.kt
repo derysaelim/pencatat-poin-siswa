@@ -1,6 +1,9 @@
 package com.catatpelanggaran.gurubk
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -10,6 +13,7 @@ import com.adriandery.catatpelanggaran.LoginActivity
 import com.adriandery.catatpelanggaran.SharedPreferences
 import com.catatpelanggaran.gurubk.dashboard.DashboardFragment
 import com.catatpelanggaran.gurubk.profile.ProfileFragment
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -21,6 +25,10 @@ import kotlinx.android.synthetic.main.nav_header_bk.*
 class GurubkActivity : AppCompatActivity() {
 
     lateinit var nip: String
+    lateinit var guruPopUp: Dialog
+    lateinit var buttonCancelGuru: MaterialButton
+    lateinit var buttonExitGuru: MaterialButton
+
     private val homeFrag = DashboardFragment()
     private val profileFrag = ProfileFragment()
     private val fragmentManager = supportFragmentManager
@@ -31,6 +39,8 @@ class GurubkActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gurubk)
         setSupportActionBar(toolbar)
+
+        guruPopUp = Dialog(this)
 
         nip = intent.getStringExtra("NIP").toString()
         getData(nip)
@@ -52,11 +62,31 @@ class GurubkActivity : AppCompatActivity() {
                     fragmentManager.beginTransaction().hide(fragment).show(profileFrag).commit()
                     fragment = profileFrag
                     setting_guru.visibility = View.VISIBLE
+                    setting_guru.setOnClickListener { createExitPopUp() }
                 }
             }
             true
         }
+    }
 
+    private fun createExitPopUp() {
+        guruPopUp.setContentView(R.layout.popup_guru)
+        buttonCancelGuru = guruPopUp.findViewById(R.id.cancel_guru)
+        buttonExitGuru = guruPopUp.findViewById(R.id.exit_guru)
+
+        buttonCancelGuru.setOnClickListener {
+            guruPopUp.dismiss()
+        }
+        buttonExitGuru.setOnClickListener {
+            guruPopUp.dismiss()
+            val intent = Intent(this@GurubkActivity, LoginActivity::class.java)
+            startActivity(intent)
+            SharedPreferences.clearData(this@GurubkActivity)
+            finish()
+        }
+
+        guruPopUp.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        guruPopUp.show()
     }
 
     private fun getData(nip: String) {

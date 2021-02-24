@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBlack"
     tools:context=".dashboard.catat.CatatPenghargaanActivity">
 
     <LinearLayout
@@ -67,6 +68,7 @@
 
             <TextView
                 android:text="Tanggal Penghargaan"
+                android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:fontFamily="@font/roboto"
                 android:layout_width="wrap_content"
@@ -81,6 +83,7 @@
                 android:layout_marginTop="8dp"
                 android:padding="8dp"
                 android:inputType="date"
+                android:textColor="@android:color/white"
                 android:drawableRight="@drawable/date_icon"
                 android:background="@drawable/custom_edittext" />
 
@@ -89,6 +92,7 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/roboto"
                 android:text="Nomor Induk Siswa"
+                android:textColor="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -96,6 +100,8 @@
                 android:id="@+id/nis_penghargaan"
                 android:editable="false"
                 android:hint="NIS"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/colorLightGrey"
                 android:padding="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
@@ -107,6 +113,7 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/roboto"
                 android:text="Nama Lengkap"
+                android:textColor="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -114,6 +121,8 @@
                 android:id="@+id/nama_penghargaan"
                 android:editable="false"
                 android:hint="Nama Lengkap"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/colorLightGrey"
                 android:padding="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
@@ -127,6 +136,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto"
                 android:text="Jenis Penghargaan"
+                android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
             <EditText
@@ -159,6 +169,7 @@
             <TextView
                 android:layout_marginTop="16dp"
                 android:text="Keterangan"
+                android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:fontFamily="@font/roboto"
                 android:layout_width="wrap_content"
@@ -169,15 +180,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="keterangan"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/colorLightGrey"
                 android:ems="10"
                 android:layout_marginTop="8dp"
                 android:padding="8dp"
                 android:background="@drawable/custom_edittext" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_simpanpenghargaan"
                 android:text="SIMPAN"
                 android:background="@drawable/button_login"
+                app:backgroundTint="@color/colorYellow"
                 android:layout_marginTop="28dp"
                 android:layout_width="match_parent"
                 android:layout_height="40dp" />
