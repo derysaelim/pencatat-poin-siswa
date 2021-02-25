@@ -183,7 +183,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:entries="@array/role" />
+                android:entries="@array/role"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_simpanguru"

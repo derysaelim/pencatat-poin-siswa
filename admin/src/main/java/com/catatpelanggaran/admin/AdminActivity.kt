@@ -1,6 +1,9 @@
 package com.catatpelanggaran.admin
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -10,6 +13,7 @@ import com.adriandery.catatpelanggaran.LoginActivity
 import com.adriandery.catatpelanggaran.SharedPreferences
 import com.catatpelanggaran.admin.dashboard.DashboardFragment
 import com.catatpelanggaran.admin.profile.EditFragment
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -19,6 +23,10 @@ import kotlinx.android.synthetic.main.activity_admin.*
 class AdminActivity : AppCompatActivity() {
 
     lateinit var nip: String
+    lateinit var adminPopUp: Dialog
+    lateinit var buttonCancelAdmin: MaterialButton
+    lateinit var buttonExitAdmin: MaterialButton
+
     private val homeFrag = DashboardFragment()
     private val profileFrag = EditFragment()
     private val fragmentManager = supportFragmentManager
@@ -29,6 +37,8 @@ class AdminActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin)
         setSupportActionBar(toolbar)
+
+        adminPopUp = Dialog(this)
 
         nip = intent.getStringExtra("NIP").toString()
         getData(nip)
@@ -50,10 +60,31 @@ class AdminActivity : AppCompatActivity() {
                     fragmentManager.beginTransaction().hide(fragment).show(profileFrag).commit()
                     fragment = profileFrag
                     setting_admin.visibility = View.VISIBLE
+                    setting_admin.setOnClickListener { createPopUpAdmin() }
                 }
             }
             true
         }
+    }
+
+    private fun createPopUpAdmin() {
+        adminPopUp.setContentView(R.layout.popup_admin)
+        buttonCancelAdmin = adminPopUp.findViewById(R.id.cancel_admin)
+        buttonExitAdmin = adminPopUp.findViewById(R.id.exit_admin)
+
+        buttonCancelAdmin.setOnClickListener {
+            adminPopUp.dismiss()
+        }
+        buttonExitAdmin.setOnClickListener {
+            adminPopUp.dismiss()
+            val intent = Intent(this@AdminActivity, LoginActivity::class.java)
+            startActivity(intent)
+            SharedPreferences.clearData(this@AdminActivity)
+            finish()
+        }
+
+        adminPopUp.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        adminPopUp.show()
     }
 
     private fun getData(nip: String) {

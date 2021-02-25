@@ -185,11 +185,12 @@
                 android:enabled="false"
                 android:visibility="gone"
                 android:layout_marginTop="8dp"
+                android:textColor="@android:color/white"
                 android:background="@drawable/custom_edittext"
                 android:inputType="text"
                 android:padding="8dp" />
 
-            <Spinner
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/walikelas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

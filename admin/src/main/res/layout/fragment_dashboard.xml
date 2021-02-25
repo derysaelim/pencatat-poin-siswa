@@ -72,7 +72,7 @@
                         android:fontFamily="@font/roboto"
                         android:text="@string/siswa"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -109,7 +109,7 @@
                         android:fontFamily="@font/roboto"
                         android:text="@string/kelas"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
@@ -161,7 +161,7 @@
                         android:fontFamily="@font/roboto"
                         android:text="@string/pelanggaran"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -198,7 +198,7 @@
                         android:fontFamily="@font/roboto"
                         android:text="@string/penghargaan"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -250,7 +250,7 @@
                         android:fontFamily="@font/roboto"
                         android:text="@string/guru"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
 
