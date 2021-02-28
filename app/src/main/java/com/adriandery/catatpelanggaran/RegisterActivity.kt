@@ -1,11 +1,15 @@
 package com.adriandery.catatpelanggaran
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.adriandery.catatpelanggaran.model.Login
 import com.adriandery.catatpelanggaran.model.Ortu
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -14,22 +18,17 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
-    companion object {
-        const val DATA_ORTU = "dataOrtu"
-    }
+    lateinit var popUpMMain: Dialog
+    lateinit var okButtton: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        var dataOrtu = intent.getParcelableExtra<Ortu>(DATA_ORTU)
+        popUpMMain = Dialog(this)
 
         button_daftar.setOnClickListener {
-            if (dataOrtu != null) {
-
-            } else {
-                insertData()
-            }
+            insertData()
         }
 
         back_login.setOnClickListener {
@@ -52,19 +51,19 @@ class RegisterActivity : AppCompatActivity() {
 
         if (nis.isEmpty() || nama.isEmpty() || nohp.isEmpty() || password.isEmpty() || konfirmasi.isEmpty()) {
             if (nis.isEmpty()) {
-                input_nis.error = "Isi"
+                input_nis.error = "Mohon Diisi"
             }
             if (nama.isEmpty()) {
-                input_nama.error = "Isi"
+                input_nama.error = "Mohon Diisi"
             }
             if (nohp.isEmpty()) {
-                input_nohp.error = "Isi"
+                input_nohp.error = "Mohon Diisi"
             }
             if (password.isEmpty()) {
-                input_password.error = "Isi"
+                input_password.error = "Mohon Diisi"
             }
             if (konfirmasi.isEmpty()) {
-                input_konfirmasi.error = "Isi"
+                input_konfirmasi.error = "Mohon Diisi"
             }
             if (konfirmasi != password) {
                 input_password.error = "tidak sama"
@@ -72,32 +71,56 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
         else {
-            database.child("Orang_Tua")
-                .addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        if (snapshot.child(nis).exists()) {
-                            Toast.makeText(
-                                this@RegisterActivity, "Sudah ada", Toast.LENGTH_SHORT
-                            ).show()
-                        } else {
-                            database.child("Orang_Tua").child(nis).setValue(data)
-                                .addOnCompleteListener {
-                                    database.child("Login").child(nis).setValue(dataLogin)
+            database.child("Siswa").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.child(nis).exists()) {
+                        database.child("Orang_Tua")
+                            .addListenerForSingleValueEvent(object : ValueEventListener {
+                                override fun onDataChange(snapshot: DataSnapshot) {
+                                    if (snapshot.child(nis).exists()) {
+                                        Toast.makeText(
+                                            this@RegisterActivity, "Sudah ada", Toast.LENGTH_SHORT
+                                        ).show()
+                                    } else {
+                                        database.child("Orang_Tua").child(nis).setValue(data)
+                                            .addOnCompleteListener {
+                                                database.child("Login").child(nis)
+                                                    .setValue(dataLogin)
+                                                createPopUpRegister()
+                                            }
+                                    }
+                                }
+
+                                override fun onCancelled(error: DatabaseError) {
                                     Toast.makeText(
-                                        this@RegisterActivity, "Berhasil", Toast.LENGTH_SHORT
+                                        this@RegisterActivity, "Something Wrong", Toast.LENGTH_SHORT
                                     ).show()
                                 }
-                        }
-                    }
-
-                    override fun onCancelled(error: DatabaseError) {
+                            })
+                    } else {
                         Toast.makeText(
-                            this@RegisterActivity, "Something Wrong", Toast.LENGTH_SHORT
+                            this@RegisterActivity, "NIS Tidak Terdaftar", Toast.LENGTH_SHORT
                         ).show()
                     }
-                })
+                }
+
+                override fun onCancelled(error: DatabaseError) {}
+            })
+        }
+    }
+
+    private fun createPopUpRegister() {
+        popUpMMain.setContentView(R.layout.popup_main)
+        okButtton = popUpMMain.findViewById(R.id.ok_main)
+        popUpMMain.setOnCancelListener { finish() }
+
+        okButtton.setOnClickListener {
+            popUpMMain.dismiss()
             finish()
         }
+
+        popUpMMain.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        popUpMMain.show()
     }
 
     override fun onBackPressed() {

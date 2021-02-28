@@ -28,53 +28,45 @@ class LoginActivity : AppCompatActivity() {
                     password_login.error = "Mohon isi"
                 }
             } else {
-
                 val databaseReference: DatabaseReference =
                     FirebaseDatabase.getInstance().reference
                 databaseReference.child("Login")
                     .addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
-//                        cek NIP didatabase
                             if (snapshot.child(nip).exists()) {
-//                        cek password didatabase
                                 if (snapshot.child(nip).child("password")
                                         .getValue(String::class.java).equals(password)
                                 ) {
-//                            cek apakah admin
-                                    if (snapshot.child(nip).child("role")
-                                            .getValue(String::class.java).equals("Admin")
-                                    ) {
-
-//                                set user sudah login
-                                        SharedPreferences.setDataLogin(this@LoginActivity, true)
-
-//                                set login sebagai admin
-                                        SharedPreferences.setDataAs(this@LoginActivity, "admin")
-                                        SharedPreferences.setNIP(this@LoginActivity, nip)
-                                        goToModule("admin", nip)
-                                        finish()
-                                    } else if (snapshot.child(nip).child("role")
-                                            .getValue(String::class.java).equals("Guru")
-                                    ) {
-
-//                                set user sudah login
-                                        SharedPreferences.setDataLogin(this@LoginActivity, true)
-
-//                                set login sebagai guru
-                                        SharedPreferences.setDataAs(this@LoginActivity, "gurubk")
-                                        SharedPreferences.setNIP(this@LoginActivity, nip)
-                                        goToModule("gurubk", nip)
-                                        finish()
-                                    } else {
-
-//                                set user sudah login
-                                        SharedPreferences.setDataLogin(this@LoginActivity, true)
-
-//                                set login sebagai orang tua
-                                        SharedPreferences.setDataAs(this@LoginActivity, "orangtua")
-                                        SharedPreferences.setNIP(this@LoginActivity, nip)
-                                        goToModule("orangtua", nip)
-                                        finish()
+                                    when {
+                                        snapshot.child(nip).child("role")
+                                            .getValue(String::class.java).equals("Admin") -> {
+                                            SharedPreferences.setDataLogin(this@LoginActivity, true)
+                                            SharedPreferences.setDataAs(this@LoginActivity, "admin")
+                                            SharedPreferences.setNIP(this@LoginActivity, nip)
+                                            goToModule("admin", nip)
+                                            finish()
+                                        }
+                                        snapshot.child(nip).child("role")
+                                            .getValue(String::class.java).equals("Guru") -> {
+                                            SharedPreferences.setDataLogin(this@LoginActivity, true)
+                                            SharedPreferences.setDataAs(
+                                                this@LoginActivity,
+                                                "gurubk"
+                                            )
+                                            SharedPreferences.setNIP(this@LoginActivity, nip)
+                                            goToModule("gurubk", nip)
+                                            finish()
+                                        }
+                                        else -> {
+                                            SharedPreferences.setDataLogin(this@LoginActivity, true)
+                                            SharedPreferences.setDataAs(
+                                                this@LoginActivity,
+                                                "orangtua"
+                                            )
+                                            SharedPreferences.setNIP(this@LoginActivity, nip)
+                                            goToModule("orangtua", nip)
+                                            finish()
+                                        }
                                     }
                                 } else {
                                     Toast.makeText(
