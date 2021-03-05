@@ -20,10 +20,10 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_bk.*
-import kotlinx.android.synthetic.main.activity_bk.back_button
-import kotlinx.android.synthetic.main.activity_bk.progress_bar
+import kotlinx.android.synthetic.main.activity_bk_admin.*
 import kotlinx.android.synthetic.main.activity_petugas.*
+import kotlinx.android.synthetic.main.activity_petugas.back_button
+import kotlinx.android.synthetic.main.activity_petugas.progress_bar
 
 class BkActivity : AppCompatActivity() {
 
@@ -34,7 +34,7 @@ class BkActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bk)
+        setContentView(R.layout.activity_bk_admin)
         setSupportActionBar(toolbar_gurubk)
 
         back_button.setOnClickListener { finish() }

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.catatpelanggaran.orangtua.R
 import com.catatpelanggaran.orangtua.model.Pelanggaran
-import kotlinx.android.synthetic.main.item_pelanggaran.view.*
+import kotlinx.android.synthetic.main.item_pelanggaran_ortu.view.*
 
 class AdapterPelanggaran(val pelanggaran: ArrayList<Pelanggaran>) :
     RecyclerView.Adapter<AdapterPelanggaran.ViewHolder>() {
@@ -19,7 +19,8 @@ class AdapterPelanggaran(val pelanggaran: ArrayList<Pelanggaran>) :
         viewType: Int
     ): AdapterPelanggaran.ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_pelanggaran, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_pelanggaran_ortu, parent, false)
         return ViewHolder(view)
     }
 

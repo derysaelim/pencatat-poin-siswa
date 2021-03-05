@@ -27,7 +27,7 @@
                     android:id="@+id/back_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/back_icon"
+                    android:background="@drawable/back_icon_admin"
                     android:contentDescription="@string/image_decs" />
 
                 <TextView
@@ -61,7 +61,7 @@
 
     <include
         android:id="@+id/penghargaan_empty"
-        layout="@layout/view_empty"
+        layout="@layout/view_empty_admin"
         android:visibility="gone" />
 
 </RelativeLayout>

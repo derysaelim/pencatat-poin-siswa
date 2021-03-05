@@ -12,7 +12,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_pelanggaran.*
+import kotlinx.android.synthetic.main.activity_pelanggaran_ortu.*
 
 class PelanggaranActivity : AppCompatActivity() {
 
@@ -28,7 +28,7 @@ class PelanggaranActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pelanggaran)
+        setContentView(R.layout.activity_pelanggaran_ortu)
         setSupportActionBar(toolbar_pelanggaran)
 
         nis = intent.getStringExtra(NIS_SISWA).toString()

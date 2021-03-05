@@ -16,7 +16,7 @@
     </dist:module>
 
     <application android:theme="@style/NoBorder">
-        <activity android:name=".dashboard.penghargaan.PenghargaanActivity"></activity>
+        <activity android:name=".dashboard.penghargaan.PenghargaanActivity" />
         <activity android:name=".dashboard.pelanggaran.PelanggaranActivity" />
         <activity android:name=".OrtuActivity" />
     </application>

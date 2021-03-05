@@ -16,10 +16,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_pelanggaran.*
-import kotlinx.android.synthetic.main.activity_penghargaan.*
-import kotlinx.android.synthetic.main.activity_penghargaan.back_button
-import kotlinx.android.synthetic.main.activity_penghargaan.progress_bar
+import kotlinx.android.synthetic.main.activity_penghargaan_guru.*
 
 class PenghargaanActivity : AppCompatActivity() {
 
@@ -30,7 +27,7 @@ class PenghargaanActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_penghargaan)
+        setContentView(R.layout.activity_penghargaan_guru)
         setSupportActionBar(toolbar_penghargaan)
 
         back_button.setOnClickListener { finish() }
@@ -114,7 +111,7 @@ class PenghargaanActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.search_menu, menu)
+        menuInflater.inflate(R.menu.search_guru, menu)
 
         searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         searchView = menu.findItem(R.id.search_bar).actionView as SearchView

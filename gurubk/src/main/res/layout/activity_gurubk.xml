@@ -75,7 +75,7 @@
         android:background="@color/colorPrimaryDark"
         app:itemIconTint="@drawable/guru_nav_color"
         app:itemTextColor="@drawable/guru_nav_color"
-        app:menu="@menu/menu"
+        app:menu="@menu/menu_guru"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

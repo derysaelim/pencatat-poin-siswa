@@ -53,7 +53,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="16dp"
-                    android:background="@drawable/setting_icon"
+                    android:background="@drawable/setting_icon_admin"
                     android:visibility="gone" />
             </RelativeLayout>
         </com.google.android.material.appbar.MaterialToolbar>

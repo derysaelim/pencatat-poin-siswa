@@ -30,7 +30,7 @@
                         android:id="@+id/back_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/back_icon"
+                        android:background="@drawable/back_icon_admin"
                         android:contentDescription="@string/image_decs" />
 
                     <TextView
@@ -51,7 +51,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="16dp"
                         android:visibility="gone"
-                        android:background="@drawable/delete_icon"
+                        android:background="@drawable/delete_icon_admin"
                         android:contentDescription="@string/image_decs" />
 
                     <ImageButton
@@ -61,7 +61,7 @@
                         android:layout_toStartOf="@id/deletekelas_button"
                         android:layout_marginEnd="16dp"
                         android:visibility="gone"
-                        android:background="@drawable/edit_icon"
+                        android:background="@drawable/edit_icon_admin"
                         android:contentDescription="@string/image_decs" />
 
                 </RelativeLayout>
@@ -105,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/custom_edittext_admin"
                 android:hint="Jurusan : RPL, SIJA, TOI"
                 android:textColor="@android:color/white"
                 android:textColorHint="@color/colorLightGrey"
@@ -186,7 +186,7 @@
                 android:visibility="gone"
                 android:layout_marginTop="8dp"
                 android:textColor="@android:color/white"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/custom_edittext_admin"
                 android:inputType="text"
                 android:padding="8dp" />
 
@@ -202,7 +202,7 @@
                 android:layout_marginTop="28dp"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:background="@drawable/button_login"
+                android:background="@drawable/button_login_admin"
                 app:backgroundTint="@color/colorYellow"
                 android:textColor="@android:color/black"
                 android:text="Simpan" />

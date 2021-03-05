@@ -28,7 +28,7 @@
                         android:id="@+id/back_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/back_icon"
+                        android:background="@drawable/back_icon_admin"
                         android:contentDescription="@string/image_decs" />
 
                     <TextView
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/custom_edittext_admin"
                 android:hint="NIS"
                 android:padding="8dp" />
 
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/custom_edittext_admin"
                 android:hint="NIS"
                 android:padding="8dp" />
 
@@ -99,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/custom_edittext_admin"
                 android:hint="NIS"
                 android:padding="8dp" />
 
@@ -117,7 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/custom_edittext_admin"
                 android:hint="NIS"
                 android:padding="8dp" />
 
@@ -134,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/custom_edittext_admin"
                 android:hint="NIS"
                 android:padding="8dp" />
 
@@ -143,7 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="28dp"
-                android:background="@drawable/button_login"
+                android:background="@drawable/button_login_admin"
                 android:text="Edit" />
 
         </LinearLayout>

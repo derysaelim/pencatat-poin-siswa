@@ -16,7 +16,7 @@
     </dist:module>
 
     <application android:theme="@style/NoBorder">
-        <activity android:name=".dashboard.catat.CatatPenghargaanActivity"></activity>
+        <activity android:name=".dashboard.catat.CatatPenghargaanActivity" />
         <activity android:name=".dashboard.penghargaan.PenghargaanActivity" />
         <activity android:name=".dashboard.datapelanggar.DetailPelanggarActivity" />
         <activity android:name=".dashboard.gurubk.BkActivity" />

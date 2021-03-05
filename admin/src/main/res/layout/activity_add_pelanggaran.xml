@@ -30,7 +30,7 @@
                         android:id="@+id/back_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/back_icon"
+                        android:background="@drawable/back_icon_admin"
                         android:contentDescription="@string/image_decs" />
 
                     <TextView
@@ -51,7 +51,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="16dp"
                         android:visibility="gone"
-                        android:background="@drawable/delete_icon"
+                        android:background="@drawable/delete_icon_admin"
                         android:contentDescription="@string/image_decs" />
 
                 </RelativeLayout>
@@ -78,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/custom_edittext_admin"
                 android:hint="Pelanggaran"
                 android:textColor="@android:color/white"
                 android:textColorHint="@color/colorLightGrey"
@@ -99,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/custom_edittext_admin"
                 android:hint="Poin"
                 android:textColor="@android:color/white"
                 android:textColorHint="@color/colorLightGrey"
@@ -120,7 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/custom_edittext"
+                android:background="@drawable/custom_edittext_admin"
                 android:hint="Hukuman"
                 android:textColor="@android:color/white"
                 android:textColorHint="@color/colorLightGrey"
@@ -132,7 +132,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="28dp"
-                android:background="@drawable/button_login"
+                android:background="@drawable/button_login_admin"
                 app:backgroundTint="@color/colorYellow"
                 android:textColor="@android:color/black"
                 android:text="Simpan" />

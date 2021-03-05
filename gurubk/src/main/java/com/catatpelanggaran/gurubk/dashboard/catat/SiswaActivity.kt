@@ -18,7 +18,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_siswa.*
+import kotlinx.android.synthetic.main.activity_siswa_guru.*
 
 class SiswaActivity : AppCompatActivity() {
 
@@ -36,7 +36,7 @@ class SiswaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_siswa)
+        setContentView(R.layout.activity_siswa_guru)
         setSupportActionBar(toolbar_siswa)
 
         dataKelas = intent.getParcelableExtra(DATA_KELAS)!!
@@ -173,7 +173,7 @@ class SiswaActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.search_menu, menu)
+        menuInflater.inflate(R.menu.search_guru, menu)
 
         searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         searchView = menu.findItem(R.id.search_bar).actionView as SearchView

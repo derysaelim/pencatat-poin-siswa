@@ -20,9 +20,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_catat_pelanggaran.*
 import kotlinx.android.synthetic.main.activity_data_pelanggar.*
-import kotlinx.android.synthetic.main.activity_siswa.*
-import kotlinx.android.synthetic.main.activity_siswa.progress_bar
-import kotlinx.android.synthetic.main.activity_siswa.siswa_empty
 
 class DataPelanggarActivity : AppCompatActivity() {
 
@@ -350,7 +347,7 @@ class DataPelanggarActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.search_menu, menu)
+        menuInflater.inflate(R.menu.search_guru, menu)
 
         searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         searchView = menu.findItem(R.id.search_bar).actionView as SearchView

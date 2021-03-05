@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_catat_pelanggaran.*
-import kotlinx.android.synthetic.main.activity_pelanggaran.*
+import kotlinx.android.synthetic.main.activity_pelanggaran_guru.*
 
 class PelanggaranActivity : AppCompatActivity() {
 
@@ -28,7 +28,7 @@ class PelanggaranActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pelanggaran)
+        setContentView(R.layout.activity_pelanggaran_guru)
         setSupportActionBar(toolbar_pelanggaran)
 
         back_button.setOnClickListener {
@@ -119,7 +119,7 @@ class PelanggaranActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.search_menu, menu)
+        menuInflater.inflate(R.menu.search_guru, menu)
 
         searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         searchView = menu.findItem(R.id.search_bar).actionView as SearchView

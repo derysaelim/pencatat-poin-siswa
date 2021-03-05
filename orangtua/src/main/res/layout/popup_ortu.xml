@@ -22,7 +22,7 @@
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/icon_list_pelanggaran"
+                android:src="@drawable/icon_list_pelanggaran_ortu"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY" />
 

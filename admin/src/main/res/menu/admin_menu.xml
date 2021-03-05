@@ -6,12 +6,12 @@
         android:id="@+id/home"
         android:title="@string/home"
         app:showAsAction="always"
-        android:icon="@drawable/home_icon" />
+        android:icon="@drawable/home_icon_admin" />
 
     <item
         android:id="@+id/profile"
         android:title="@string/profile"
         app:showAsAction="always"
-        android:icon="@drawable/person_icon" />
+        android:icon="@drawable/person_icon_admin" />
 
 </menu>

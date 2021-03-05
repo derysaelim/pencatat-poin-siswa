@@ -6,14 +6,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.catatpelanggaran.gurubk.R
 import com.catatpelanggaran.gurubk.model.Catat
-import kotlinx.android.synthetic.main.item_siswa.view.*
+import kotlinx.android.synthetic.main.item_siswa_guru.view.*
 
 class AdapterSiswa(val siswa: ArrayList<Catat>) : RecyclerView.Adapter<AdapterSiswa.ViewHolder>() {
 
     var onItemClick: ((Catat) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterSiswa.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_siswa, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_siswa_guru, parent, false)
         return ViewHolder(view)
     }
 

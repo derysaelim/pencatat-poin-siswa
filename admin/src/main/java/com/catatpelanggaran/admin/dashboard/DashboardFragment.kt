@@ -12,7 +12,7 @@ import com.catatpelanggaran.admin.dashboard.kelas.KelasActivity
 import com.catatpelanggaran.admin.dashboard.pelanggaran.PelanggaranActivity
 import com.catatpelanggaran.admin.dashboard.penghargaan.PenghargaanActivity
 import com.catatpelanggaran.admin.dashboard.siswa.SiswaActivity
-import kotlinx.android.synthetic.main.fragment_dashboard.*
+import kotlinx.android.synthetic.main.fragment_dashboard_admin.*
 
 class DashboardFragment : Fragment(), View.OnClickListener {
 
@@ -24,7 +24,7 @@ class DashboardFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+        return inflater.inflate(R.layout.fragment_dashboard_admin, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

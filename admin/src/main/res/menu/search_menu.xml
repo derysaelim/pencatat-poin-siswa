@@ -7,12 +7,12 @@
         android:title="Search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|ifRoom"
-        android:icon="@drawable/search_icon" />
+        android:icon="@drawable/search_icon_admin" />
 
     <item
         android:id="@+id/add_button"
         android:title="Add"
         app:showAsAction="always"
-        android:icon="@drawable/add_icon" />
+        android:icon="@drawable/add_icon_admin" />
 
 </menu>
