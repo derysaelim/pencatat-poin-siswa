@@ -36,6 +36,11 @@ class DashboardFragment : Fragment(), View.OnClickListener {
         button_data_pelanggaran.setOnClickListener(this)
         button_data_penghargaan.setOnClickListener(this)
 
+        data_pelanggaran.setOnClickListener(this)
+        data_penghargaan.setOnClickListener(this)
+        card_data_pelanggaran.setOnClickListener(this)
+        card_data_penghargaan.setOnClickListener(this)
+
         getData(nis)
     }
 
@@ -62,22 +67,22 @@ class DashboardFragment : Fragment(), View.OnClickListener {
         lateinit var pindah: Intent
 
         when (view.id) {
-            R.id.button_pelanggaran -> {
+            R.id.button_pelanggaran, R.id.data_pelanggaran -> {
                 pindah = Intent(context, PelanggaranActivity::class.java)
                 pindah.putExtra(PelanggaranActivity.NIS_SISWA, nis)
                 pindah.putExtra(PelanggaranActivity.DATA_ACTIVITY, "siswa")
             }
-            R.id.button_penghargaan -> {
+            R.id.button_penghargaan, R.id.data_penghargaan -> {
                 pindah = Intent(context, PenghargaanActivity::class.java)
                 pindah.putExtra(PenghargaanActivity.NIS_SISWA, nis)
                 pindah.putExtra(PenghargaanActivity.DATA_ACTIVITY, "siswa")
             }
-            R.id.button_data_pelanggaran -> {
+            R.id.button_data_pelanggaran, R.id.card_data_pelanggaran -> {
                 pindah = Intent(context, PelanggaranActivity::class.java)
                 pindah.putExtra(PelanggaranActivity.NIS_SISWA, nis)
                 pindah.putExtra(PelanggaranActivity.DATA_ACTIVITY, "data")
             }
-            R.id.button_data_penghargaan -> {
+            R.id.button_data_penghargaan, R.id.card_data_penghargaan -> {
                 pindah = Intent(context, PenghargaanActivity::class.java)
                 pindah.putExtra(PenghargaanActivity.NIS_SISWA, nis)
                 pindah.putExtra(PenghargaanActivity.DATA_ACTIVITY, "data")

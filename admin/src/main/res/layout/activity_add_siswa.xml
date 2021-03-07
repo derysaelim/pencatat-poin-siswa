@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:hint="NIS"
                 android:background="@drawable/custom_edittext_admin"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textColorHint="@color/colorLightGrey"
                 android:padding="8dp"
                 android:inputType="number" />

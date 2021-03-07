@@ -36,6 +36,12 @@ class DashboardFragment : Fragment(), View.OnClickListener {
         button_pelanggaran.setOnClickListener(this)
         button_penghargaan.setOnClickListener(this)
 
+        data_siswa.setOnClickListener(this)
+        data_kelas.setOnClickListener(this)
+        data_guru.setOnClickListener(this)
+        data_pelanggaran.setOnClickListener(this)
+        data_penghargaan.setOnClickListener(this)
+
         nip = activity?.intent?.getStringExtra("NIP").toString()
 
     }
@@ -45,20 +51,20 @@ class DashboardFragment : Fragment(), View.OnClickListener {
         lateinit var intent: Intent
 
         when (view.id) {
-            R.id.button_siswa -> {
+            R.id.button_siswa, R.id.data_siswa -> {
                 intent = Intent(context, SiswaActivity::class.java)
             }
-            R.id.button_guru -> {
+            R.id.button_guru, R.id.data_guru -> {
                 intent = Intent(context, GuruActivity::class.java)
                 intent.putExtra(GuruActivity.NIP_PETUGAS, nip)
             }
-            R.id.button_kelas -> {
+            R.id.button_kelas, R.id.data_kelas -> {
                 intent = Intent(context, KelasActivity::class.java)
             }
-            R.id.button_pelanggaran -> {
+            R.id.button_pelanggaran, R.id.data_pelanggaran -> {
                 intent = Intent(context, PelanggaranActivity::class.java)
             }
-            R.id.button_penghargaan -> {
+            R.id.button_penghargaan, R.id.data_penghargaan -> {
                 intent = Intent(context, PenghargaanActivity::class.java)
             }
         }
