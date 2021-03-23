@@ -151,7 +151,7 @@
                     android:layout_height="match_parent">
 
                     <ImageButton
-                        android:id="@+id/button_kategori"
+                        android:id="@+id/button_pelanggar"
                         android:layout_width="wrap_content"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
@@ -162,7 +162,7 @@
                         android:id="@+id/tv_kategori"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/button_kategori"
+                        android:layout_below="@id/button_pelanggar"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="6dp"
@@ -250,7 +250,7 @@
                     android:layout_height="match_parent">
 
                     <ImageButton
-                        android:id="@+id/button_pelanggar"
+                        android:id="@+id/kategori_pelanggaran"
                         android:layout_width="wrap_content"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
@@ -260,7 +260,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/button_pelanggar"
+                        android:layout_below="@id/kategori_pelanggaran"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="6dp"
@@ -291,7 +291,7 @@
                     android:layout_height="match_parent">
 
                     <ImageButton
-                        android:id="@+id/button_reward"
+                        android:id="@+id/kategori_penghargaan"
                         android:layout_width="wrap_content"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
@@ -301,7 +301,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/button_reward"
+                        android:layout_below="@id/kategori_penghargaan"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="6dp"

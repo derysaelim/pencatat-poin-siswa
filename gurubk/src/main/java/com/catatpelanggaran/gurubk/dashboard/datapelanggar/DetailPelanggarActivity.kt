@@ -39,8 +39,10 @@ class DetailPelanggarActivity : AppCompatActivity() {
         back_detail.setOnClickListener { finish() }
 
         if (data == "langgar") {
+            text_detail.text = "Data Pelanggaran"
             getDataPelanggaran(nis)
         } else {
+            text_detail.text = "Data Penghargaan"
             getDataPenghargaan(nis)
         }
 

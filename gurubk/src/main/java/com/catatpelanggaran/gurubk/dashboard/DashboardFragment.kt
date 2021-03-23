@@ -37,10 +37,10 @@ class DashboardFragment : Fragment(), View.OnClickListener {
 
         button_catat.setOnClickListener(this)
         button_catat_penghargaan.setOnClickListener(this)
-        button_kategori.setOnClickListener(this)
+        kategori_pelanggaran.setOnClickListener(this)
         button_penghargaan.setOnClickListener(this)
         button_pelanggar.setOnClickListener(this)
-        button_reward.setOnClickListener(this)
+        kategori_penghargaan.setOnClickListener(this)
 
         nip = activity?.intent?.getStringExtra("NIP").toString()
     }
@@ -57,17 +57,17 @@ class DashboardFragment : Fragment(), View.OnClickListener {
                 intent = Intent(context, KelasActivity::class.java)
                 intent.putExtra(KelasActivity.DATA_SISWA, "reward")
             }
-            R.id.list_pelanggaran, R.id.button_kategori -> {
+            R.id.data_pelanggar, R.id.button_pelanggar -> {
                 intent = Intent(context, PelanggaranActivity::class.java)
             }
-            R.id.list_penghargaan, R.id.button_penghargaan -> {
+            R.id.data_penghargaan, R.id.button_penghargaan -> {
                 intent = Intent(context, PenghargaanActivity::class.java)
             }
-            R.id.data_pelanggar, R.id.button_pelanggar -> {
+            R.id.list_pelanggaran, R.id.kategori_pelanggaran -> {
                 intent = Intent(context, DataPelanggarActivity::class.java)
                 intent.putExtra(DataPelanggarActivity.DATA_SISWA, "langgar")
             }
-            R.id.data_penghargaan, R.id.button_reward -> {
+            R.id.list_penghargaan, R.id.kategori_penghargaan -> {
                 intent = Intent(context, DataPelanggarActivity::class.java)
                 intent.putExtra(DataPelanggarActivity.DATA_SISWA, "reward")
             }
